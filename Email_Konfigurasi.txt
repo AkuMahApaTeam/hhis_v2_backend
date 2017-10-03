@@ -1,0 +1,38 @@
+Konfigurasi XAMPP Untuk Mengirim Email di Komputer Lokal
+
+1. Edit File php.ini (xampp/php/php.ini)
+Cari script [mail function], lalu sesuaikan perintah – perintah dibawah ini.
+
+	SMTP = smtp.gmail.com
+	smtp_port = 587
+	sendmail_from = [email-saya]@gmail.com
+	sendmail_path = “\”C:\xampp\sendmail\sendmail.exe\” -t”
+
+Pada bagian “sendmail_from” isikan email yang digunakan untuk mengirim pesan, misal pintarkomputer@gmail.com.
+Masih dalam file yang sama, cari script :
+
+	sendmail_path=”C:\xampp\mailtodisk\mailtodisk.exe”
+
+Jika sudah ditemukan, tambahkan “;” pada awal bari script tersebut, sehingga menjadi seperti
+
+	;sendmail_path=”C:\xampp\mailtodisk\mailtodisk.exe”
+
+2. Edit File sendmail.ini (xampp/sendmail/sendmail.ini)
+Script default yang terdapat dalam file sendmail.ini bisa Anda hapus semua dan diganti dengan script dibawah ini :
+
+	[sendmail]
+
+	smtp_server=smtp.gmail.com
+	smtp_port=587
+	error_logfile=error.log
+	debug_logfile=debug.log
+	auth_username= [email-saya]@gmail.com
+	auth_password= [password email]
+
+	force_sender=[email-saya]@gmail.com 
+
+Pada bagian “auth_username” & “force_sender” isikan yang digunakan sebagai pengirim email sama seperti di bagian nomor 1. 
+Dan password harus diisi sesuai dengan password akun email yang digunakan.
+
+3. Bukalah web browser lalu lakukan konfigurasi pada laman https://myaccount.google.com/lesssecureapps, 
+   ubahlah menjadi Allow less secure apps menjadi ON. Sebelum membuka laman tersebut hendaklah anda login email anda yang telah di setting pada php.ini dan sendmail.ini terlebih dahulu.

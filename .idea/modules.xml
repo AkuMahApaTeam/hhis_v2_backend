@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../buildpro/.idea/buildpro.iml" filepath="$PROJECT_DIR$/../buildpro/.idea/buildpro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/simalumni.iml" filepath="$PROJECT_DIR$/.idea/simalumni.iml" />
+    </modules>
+  </component>
+</project>
