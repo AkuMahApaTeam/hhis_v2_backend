@@ -127,6 +127,12 @@ abstract class BaseRenderer extends Object implements RendererInterface
     public $sortable = false;
 
     /**
+     * @var bool whether to render inline error for all input. Default to `false`. Can be override in `columns`
+     * @since 2.10
+     */
+    public $enableError = false;
+
+    /**
      * @inheritdoc
      */
     public function setContext($context)
@@ -243,6 +249,10 @@ abstract class BaseRenderer extends Object implements RendererInterface
                 $definition['attributeOptions'] = $this->attributeOptions;
             }
 
+            if (!array_key_exists('enableError', $definition)) {
+                $definition['enableError'] = $this->enableError;
+            }
+
             $this->columns[$i] = Yii::createObject($definition);
         }
     }
@@ -314,7 +324,7 @@ abstract class BaseRenderer extends Object implements RendererInterface
 
         if($this->sortable) {
             MultipleInputSortableAsset::register($view);
-            $js .= "$('#{$this->id} table').sortable({containerSelector: 'table', itemPath: '> tbody', itemSelector: 'tr', placeholder: '<tr class=\"placeholder\"/>', handle:'.drag-handle'});";
+            $js .= "$('#{$this->id} table').sorting({containerSelector: 'table', itemPath: '> tbody', itemSelector: 'tr', placeholder: '<tr class=\"placeholder\"/>', handle:'.drag-handle'});";
         }
 
         $view->registerJs($js);

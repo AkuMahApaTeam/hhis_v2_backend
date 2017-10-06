@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/frontend" isTestSource="false" packagePrefix="app" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/schmunk42/yii2-giiant" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/api.sample" isTestSource="false" packagePrefix="api" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/fzaninotto/faker/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/dmstr/yii2-db/tests/_support" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/schmunk42/yii2-giiant/tests/_helpers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/gecko-packages/gecko-php-unit/src" isTestSource="false" packagePrefix="GeckoPackages" />
+      <sourceFolder url="file://$MODULE_DIR$/common" isTestSource="false" packagePrefix="app" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/psr/log" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/dmstr/yii2-db" isTestSource="false" packagePrefix="dmstr" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2" isTestSource="false" packagePrefix="yii" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/dmstr/yii2-adminlte-asset" isTestSource="false" packagePrefix="dmstr" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/friendsofphp/php-cs-fixer/src" isTestSource="false" packagePrefix="PhpCsFixer" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/egulias/email-validator" isTestSource="false" packagePrefix="Egulias" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/backend" isTestSource="false" packagePrefix="app" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/friendsofphp/php-cs-fixer" isTestSource="false" packagePrefix="PhpCsFixer" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/dmstr/yii2-helpers/tests/_support" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/fzaninotto/faker/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/cebe/yii2-gravatar" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

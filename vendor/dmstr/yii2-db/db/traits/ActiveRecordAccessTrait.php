@@ -8,6 +8,9 @@
  */
 
 namespace dmstr\db\traits;
+use Yii;
+use dmstr\db\exceptions\UnsupportedDbException;
+
 
 /**
  * Trait ActiveRecordAccessTrait
@@ -72,7 +75,8 @@ trait ActiveRecordAccessTrait
             if ($accessRead) {
                 $queryType = ($accessOwner) ? 'orWhere' : 'where';
                 $authItems = implode(',', array_keys(self::getUsersAuthItems()));
-                $query->$queryType('FIND_IN_SET(' . $accessRead . ', "' . $authItems . '") > 0');
+                $checkInSetQuery = self::getInSetQueryPart($accessRead, $authItems);
+                $query->$queryType($checkInSetQuery);
             }
 
             // access domain check
@@ -89,29 +93,29 @@ trait ActiveRecordAccessTrait
      */
     public function beforeSave($insert)
     {
-        parent::beforeSave($insert);
-
-        if (self::$activeAccessTrait) {
-
-            // INSERT record: return true for new records
-            if ($insert) {
-                $accessOwner = self::accessColumnAttributes()['owner'];
-                if ($accessOwner && !\Yii::$app->user->isGuest) {
-                    $this->$accessOwner = \Yii::$app->user->id;
-                }
-                return true;
-            }
-
-            // UPDATE record
-            $accessUpdate = self::accessColumnAttributes()['update'];
-            if ($accessUpdate) {
-                if (!$this->hasPermission($accessUpdate)) {
-                    $this->addAccessError('update', $accessUpdate);
-                    return false;
+        if (parent::beforeSave($insert)) {
+            if (self::$activeAccessTrait) {
+                if ($insert) {
+                    // INSERT record: return true for new records
+                    $accessOwner = self::accessColumnAttributes()['owner'];
+                    if ($accessOwner && !\Yii::$app->user->isGuest) {
+                        $this->$accessOwner = \Yii::$app->user->id;
+                    }
+                } else {
+                    // UPDATE record
+                    $accessUpdate = self::accessColumnAttributes()['update'];
+                    if ($accessUpdate) {
+                        if (!$this->hasPermission($accessUpdate)) {
+                            $this->addAccessError('update', $accessUpdate);
+                            return false;
+                        }
+                    }
                 }
             }
+            return true;
+        } else {
+            return false;
         }
-        return true;
     }
 
     /**
@@ -119,16 +123,18 @@ trait ActiveRecordAccessTrait
      */
     public function beforeDelete()
     {
-        parent::beforeDelete();
-
-        if (self::$activeAccessTrait) {
-            $accessDelete = self::accessColumnAttributes()['delete'];
-            if ($accessDelete && !$this->hasPermission($accessDelete)) {
-                $this->addAccessError('delete', $accessDelete);
-                return false;
+        if (parent::beforeDelete()) {
+            if (self::$activeAccessTrait) {
+                $accessDelete = self::accessColumnAttributes()['delete'];
+                if ($accessDelete && !$this->hasPermission($accessDelete)) {
+                    $this->addAccessError('delete', $accessDelete);
+                    return false;
+                }
             }
+            return true;
+        } else {
+            return false;
         }
-        return true;
     }
 
     /**
@@ -148,14 +154,15 @@ trait ActiveRecordAccessTrait
         // Public auth item, default
         $publicAuthItem = self::allAccess();
 
-        if (!\Yii::$app->user->isGuest) {
+        if (\Yii::$app instanceof yii\web\Application && ! \Yii::$app->user->isGuest) {
 
             // auth manager
             $authManager = \Yii::$app->authManager;
 
-            if (\Yii::$app->user->identity->isAdmin) {
+            if (!empty(\Yii::$app->user->identity->isAdmin)) {
 
                 // All roles
+                $authRoles = [];
                 foreach ($authManager->getRoles() as $name => $role) {
 
                     if (!empty($role->description)) {
@@ -167,6 +174,7 @@ trait ActiveRecordAccessTrait
                 }
 
                 // All permissions
+                $authPermissions = [];
                 foreach ($authManager->getPermissions() as $name => $permission) {
 
                     if (!empty($permission->description)) {
@@ -182,7 +190,7 @@ trait ActiveRecordAccessTrait
             } else {
                 // Users auth items
                 $authItems = [];
-                foreach (\Yii::$app->authManager->getAssignments(\Yii::$app->user->id) as $name => $item) {
+                foreach ($authManager->getAssignments(\Yii::$app->user->id) as $name => $item) {
 
                     $authItem = $authManager->getItem($item->roleName);
 
@@ -285,5 +293,24 @@ trait ActiveRecordAccessTrait
         }
         $this->addError($attribute, $msg);
         \Yii::info('User ID: #' . \Yii::$app->user->id . ' | ' . $msg, get_called_class());
+    }
+    
+    /**
+     * Return correct part of check in set  query for current DB
+     * @param $accessRead
+     * @param $authItems
+     * @return string
+     */
+    private static function getInSetQueryPart($accessRead, $authItems)
+    {
+        $dbName = Yii::$app->db->getDriverName();
+        switch($dbName) {
+            case 'mysql':
+                return 'FIND_IN_SET(' . $accessRead . ', "' . $authItems . '") > 0';
+            case 'pgsql':
+                return " '" . $accessRead . "'= SOME (string_to_array('$authItems', ','))";
+            default:
+                throw new UnsupportedDbException('This database is not being supported yet');
+        }
     }
 }

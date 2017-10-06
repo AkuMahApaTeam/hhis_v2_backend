@@ -5,7 +5,7 @@
     "yii2",
     "framework",
     "advanced",
-    "project template"
+    "Healty History Informatkon System"
   ],
   "homepage": "http://www.yiiframework.com/",
   "type": "project",
@@ -43,9 +43,12 @@
     "kartik-v/yii2-field-range": "*",
     "kartik-v/dependent-dropdown": "dev-master",
     "kartik-v/yii2-editable": "*",
-    "kartik-v/yii2-money": "*"
-    "kartik-v/yii2-grid": "@dev"
-    },
+    "kartik-v/yii2-money": "*",
+    "kartik-v/yii2-grid": "@dev",
+    "mpdf/mpdf":"*",
+    "zxbodya/yii2-tinymce": "*@dev",
+    "zxbodya/yii2-elfinder": "*@dev"
+  },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",
     "yiisoft/yii2-debug": "*",

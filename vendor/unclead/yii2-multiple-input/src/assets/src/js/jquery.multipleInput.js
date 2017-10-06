@@ -22,7 +22,15 @@
         /**
          * afterAddRow event is triggered after successful adding new row.
          * The signature of the event handler should be:
-         *     function (event)
+         *     function (event, row)
+         * where event is an Event object.
+         *
+         */
+        beforeAddRow: 'beforeAddRow',
+        /**
+         * afterAddRow event is triggered after successful adding new row.
+         * The signature of the event handler should be:
+         *     function (event, row)
          * where event is an Event object.
          *
          */
@@ -220,10 +228,10 @@
     };
 
     var addInput = function (btn, values) {
-        var $wrapper = $(btn).closest('.multiple-input').first(),
-            data = $wrapper.data('multipleInput'),
-            settings = data.settings,
-            template = settings.template,
+        var $wrapper  = $(btn).closest('.multiple-input').first(),
+            data      = $wrapper.data('multipleInput'),
+            settings  = data.settings,
+            template  = settings.template,
             inputList = $wrapper.children('.multiple-input-list').first();
 
         if (settings.max != null && getCurrentIndex($wrapper) >= settings.max) {
@@ -231,8 +239,16 @@
         }
 
         template = template.replaceAll('{' + settings.indexPlaceholder + '}', data.currentIndex);
+        var $addedInput = $(template);
 
-        $(template).hide().appendTo(inputList).fadeIn(300);
+        var beforeAddEvent = $.Event(events.beforeAddRow);
+        $wrapper.trigger(beforeAddEvent, [$addedInput]);
+
+        if (beforeAddEvent.result === false) {
+            return;
+        }
+
+        $addedInput.hide().appendTo(inputList).fadeIn(300);
 
         if (values instanceof Object) {
             var tmp = [];
@@ -257,10 +273,10 @@
 
         var index = 0;
         
-        $(template).find('input, select, textarea').each(function () {
-            var that = $(this),
-                tag = that.get(0).tagName,
-                id = getInputId(that),
+        $(template).find('input, select, textarea').each(function (k, v) {
+            var ele = $(v),
+                tag = v.tagName,
+                id  = getInputId(ele),
                 obj = $('#' + id);
 
             if (values) {
@@ -281,7 +297,7 @@
             }
 
             if (isActiveFormEnabled) {
-                addAttribute(that);
+                addAttribute(ele);
             }
 
             index++;
@@ -289,15 +305,15 @@
 
         $wrapper.data('multipleInput').currentIndex++;
 
-        var event = $.Event(events.afterAddRow);
-        $wrapper.trigger(event);
+        var afterAddEvent = $.Event(events.afterAddRow);
+        $wrapper.trigger(afterAddEvent, [$addedInput]);
     };
 
     var removeInput = function ($btn) {
-        var $wrapper = $btn.closest('.multiple-input').first(),
+        var $wrapper  = $btn.closest('.multiple-input').first(),
             $toDelete = $btn.closest('.multiple-input-list__item'),
-            data = $wrapper.data('multipleInput'),
-            settings = data.settings;
+            data      = $wrapper.data('multipleInput'),
+            settings  = data.settings;
 
         if (getCurrentIndex($wrapper) > settings.min) {
             var event = $.Event(events.beforeDeleteRow);
@@ -308,8 +324,8 @@
             }
 
             if (isActiveFormEnabled) {
-                $toDelete.find('input, select, textarea').each(function () {
-                    removeAttribute($(this));
+                $toDelete.find('input, select, textarea').each(function (index, ele) {
+                    removeAttribute($(ele));
                 });
             }
 
@@ -356,7 +372,7 @@
         // try to find options for embedded attribute at first.
         // For example the id of new input is example-1-field-0.
         // We remove last index and check whether attribute with such id exists or not.
-        var bareId = id.replace(/-\d-([^\d]+)$/, '-$1');
+        var bareId = id.replace(/-\d+-([^\d]+)$/, '-$1');
         if (data.settings.attributes.hasOwnProperty(bareId)) {
             attributeOptions = data.settings.attributes[bareId];
         } else {
@@ -378,8 +394,8 @@
     /**
      * Removes an attribute from ActiveForm.
      */
-    var removeAttribute = function () {
-        var id = getInputId($(this));
+    var removeAttribute = function (ele) {
+        var id = getInputId(ele);
 
         if (id === null) {
             return;
@@ -408,10 +424,10 @@
 
     var getCurrentIndex = function($wrapper) {
         return $wrapper
-            .children('.multiple-input-list')
-            .children('tbody')
-            .children('.multiple-input-list__item')
-            .length;
+            .find('.multiple-input-list .multiple-input-list__item')
+            .filter(function(){
+                return $(this).parents('.multiple-input').first().attr('id') === $wrapper.attr('id');
+            }).length;
     };
 
     String.prototype.replaceAll = function (search, replace) {

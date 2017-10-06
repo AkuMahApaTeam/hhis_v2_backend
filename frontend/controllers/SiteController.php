@@ -1,24 +1,23 @@
 <?php
 namespace frontend\controllers;
 
-use app\models\Mahasiswa;
-use frontend\components\NodeLogger;
-use frontend\models\Berita;
-use frontend\models\MasterDonasi;
-use frontend\models\Event;
-use frontend\models\Seminar;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\models\LoginForm;
+use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-
+use frontend\models\dokter\Dokter;
+use frontend\models\riwayat\Riwayat;
+use frontend\models\pasien\PasienSearch;
+use common\models\artikel\Artikel;
+use yii\db\ActiveRecord;
+use mPDF;
 /**
  * Site controller
  */
@@ -49,7 +48,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post', 'get'],
+                    'logout' => ['post'],
                 ],
             ],
         ];
@@ -78,97 +77,33 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $modelEvent = Event::find()->limit(6)->orderBy(['tanggal' => SORT_DESC])->all();
-        $modelBerita = Berita::find()->orderBy(['tanggal' => SORT_DESC])->limit(6)->all();
+        $query = new \yii\db\Query();
+        $searchModel = new PasienSearch();
+        $model = new Dokter();
+        $modellogin = new LoginForm();
+        $errors = $searchModel->errors;
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $queryArtikel = Artikel::find();
+        $pages = new \yii\data\Pagination([
+           'totalCount' => $queryArtikel->count(),
+           'pageSize' => 3
+         ]);
+         $showA = $queryArtikel
+              ->offset($pages->offset)
+              ->limit($pages->Limit)
+              ->all();
         return $this->render('index', [
-            'modelEvent' => $modelEvent,
-            'modelBerita' => $modelBerita
+            'model' => $model,
+            'modellogin' => $modellogin,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+            'errorMess' => $errors,
+            'errorM' => null,
+            'showArtikel'=>$showA,
+            'pages'=>$pages,
+
         ]);
 
-    }
-
-    public function actionBulana()
-    {
-        if (Yii::$app->user->isGuest) {
-            return $this->redirect(['site/login']);
-        } else {
-            $id = Yii::$app->user->identity->id;
-            $model = $this->findModel($id);
-            $modelEnda = MasterDonasi::find()->orderBy(['id' => SORT_ASC])->one();
-            $model->donasi_rutin = '1';
-            $model->jumlah_donasi = $modelEnda->nilai;
-            if ($model->save()) {
-                return $this->redirect(['endowment/detailmonthly/']);
-            }
-        }
-    }
-    public function actionBulanb()
-    {
-        if (Yii::$app->user->isGuest) {
-            return $this->redirect(['site/login']);
-        } else {
-            $id = Yii::$app->user->identity->id;
-            $model = $this->findModel($id);
-            $modelEndb = MasterDonasi::find()->limit(1)->orderBy(['id' => SORT_ASC])->offset('1')->one();
-            $model->donasi_rutin = '1';
-            $model->jumlah_donasi = $modelEndb->nilai;
-            NodeLogger::sendLog($model->nama_lengkap);
-            if ($model->save()) {
-                return $this->redirect(['endowment/detailmonthly/']);
-            }
-        }
-    }
-    public function actionOnea()
-    {
-        if (Yii::$app->user->isGuest) {
-            return $this->redirect(['site/login']);
-        } else {
-            $id = Yii::$app->user->identity->id;
-            $model = new Donasi();
-            $modelEnda = MasterDonasi::find()->orderBy(['id' => SORT_ASC])->one();
-            $model->id_mahasiswa = $id;
-            $model->jumlah = $modelEnda->nilai;
-            $model->tgl_donasi = date('Y-m-d');
-            if ($model->save()) {
-                return $this->redirect(['endowment/detailone/']);
-            }
-        }
-
-    }
-
-    public function actionOneb()
-    {
-        if (Yii::$app->user->isGuest) {
-            return $this->redirect(['site/login']);
-        } else {
-            $id = Yii::$app->user->identity->id;
-            $model = new Donasi();
-            $modelEndb = MasterDonasi::find()->limit(1)->orderBy(['id' => SORT_ASC])->offset('1')->one();
-            $model->id_mahasiswa = $id;
-            $model->jumlah = $modelEndb->nilai;
-            $model->tgl_donasi = date('Y-m-d');
-            if ($model->save()) {
-                return $this->redirect(['endowment/detailone/']);
-            }
-        }
-
-    }
-    public function actionDetailone()
-    {
-        $cek = Yii::$app->user->identity->id;
-        $model = Donasi::find()->where(['id_mahasiswa' => $cek])->andWhere(['valid' => 1])->orderBy(['id' => SORT_DESC])->one();
-        return $this->render('detailone', [
-            'model' => $model
-        ]);
-    }
-
-    public function actionDetailmonthly()
-    {
-        $cek = Yii::$app->user->identity->id;
-        $model = Mahasiswa::find()->where(['id' => $cek])->one();
-        return $this->render('detailmonthly', [
-            'model' => $model
-        ]);
     }
 
     /**
@@ -178,18 +113,76 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
+
+        $modellogin = new LoginForm();
+        if ($modellogin->load(Yii::$app->request->post()) && $modellogin->validate()) {
+          if($modellogin->login()){
+          return $this->redirect(['riwayat/index',
+              'modellogin' => $modellogin,
+          ]);
+        }else{
+          echo "<script>";
+          echo "alert('gagal login')";
+          echo "</script>";
+          $searchModel = new PasienSearch();
+          $model = new Dokter();
+          $errors = $modellogin->errors;
+          $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+          $query = new \yii\db\Query();
+          $queryArtikel = Artikel::find();
+          $pages = new \yii\data\Pagination([
+             'totalCount' => $queryArtikel->count(),
+             'pageSize' => 3
+           ]);
+           $showA = $queryArtikel
+                ->offset($pages->offset)
+                ->limit($pages->Limit)
+                ->all();
+          return $this->render('index', [
+              'model' => $model,
+              'modellogin' => $modellogin,
+              'dataProvider' => $dataProvider,
+              'searchModel' => $searchModel,
+              'errorMess' => $errors,
+              'errorM' => null,
+              'showArtikel'=>$showA,
+              'pages'=>$pages,
+
+          ]);
+
         }
+        } else {
+          echo "<script>";
+          echo "alert('gagal login')";
+          echo "</script>";
+          $searchModel = new PasienSearch();
+          $model = new Dokter();
+          $errors = $modellogin->errors;
+          $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+          $query = new \yii\db\Query();
+          $queryArtikel = Artikel::find();
+          $pages = new \yii\data\Pagination([
+             'totalCount' => $queryArtikel->count(),
+             'pageSize' => 3
+           ]);
+           $showA = $queryArtikel
+                ->offset($pages->offset)
+                ->limit($pages->Limit)
+                ->all();
+          return $this->render('index', [
+              'model' => $model,
+              'modellogin' => $modellogin,
+              'dataProvider' => $dataProvider,
+              'searchModel' => $searchModel,
+              'errorMess' => $errors,
+              'errorM' => null,
+              'showArtikel'=>$showA,
+              'pages'=>$pages,
+
+          ]);
+        }
+        //  return $this->redirect(['riwayat/index']);
     }
 
     /**
@@ -216,7 +209,7 @@ class SiteController extends Controller
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
             } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending email.');
+                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
             }
 
             return $this->refresh();
@@ -247,9 +240,12 @@ class SiteController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                $this->actionLogout();
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
             }
         }
+
         return $this->render('signup', [
             'model' => $model,
         ]);
@@ -269,7 +265,7 @@ class SiteController extends Controller
 
                 return $this->goHome();
             } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
             }
         }
 
@@ -294,7 +290,7 @@ class SiteController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password was saved.');
+            Yii::$app->session->setFlash('success', 'New password saved.');
 
             return $this->goHome();
         }
@@ -302,5 +298,133 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionSearch()
+    {
+      $searchModel = new PasienSearch();
+      if($searchModel->load(\Yii::$app->request->get()) && $searchModel->validate()){
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $modelProvider=$dataProvider->getModels();
+        if($modelProvider!=null){
+        foreach ($modelProvider as $data2) {
+          $idp = $data2['id_pasien'];
+        }
+
+         $query = new \yii\db\Query();
+         $queryRiwayat = Riwayat::find()
+         ->where(['id_pasien'=>$idp]);
+         $pages = new \yii\data\Pagination([
+            'totalCount' => $queryRiwayat->count(),
+            'pageSize' => 5
+          ]);
+         $showr = $queryRiwayat
+              ->offset($pages->offset)
+              ->limit($pages->Limit)
+              ->all();
+        if($showr!=null){
+        foreach ($showr as $showR) {
+          $id_dokter = $showR['id_dokter'];
+        }
+        $showname = $query->select(['nama_dokter'])
+        ->from('dokter')
+        ->where(['id_dokter' => ''.$id_dokter.''])
+        ->all();
+        return $this->render('result', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'showRiwayat' => $showr,
+            'showName' => $showname,
+            'pages' => $pages,
+        ]);
+      }else{
+          $showr=null;
+          $showname=null;
+          return $this->render('result', [
+              'searchModel' => $searchModel,
+              'dataProvider' => $dataProvider,
+              'showRiwayat' => $showr,
+              'showName' => $showname,
+              'pages' => $pages,
+          ]);
+        }
+      }else{
+        return $this->render('errorSite');
+      }
+
+      }else{
+        $errors = $searchModel->errors;
+        $searchModel = new PasienSearch();
+        $model = new Dokter();
+        $modellogin = new LoginForm();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $query = new \yii\db\Query();
+        $queryArtikel = Artikel::find();
+        $pages = new \yii\data\Pagination([
+           'totalCount' => $queryArtikel->count(),
+           'pageSize' => 3
+         ]);
+         $showA = $queryArtikel
+              ->offset($pages->offset)
+              ->limit($pages->Limit)
+              ->all();
+        return $this->render('index', [
+            'model' => $model,
+            'modellogin' => $modellogin,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+            'errorMess' => $errors,
+            'errorM' => null,
+            'showArtikel'=>$showA,
+            'pages'=>$pages,
+
+        ]);
+
+
+      }
+
+
+  }
+    public function actionViewarticle($id)
+    {
+      $query = new \yii\db\Query();
+      $data = $query->select('*')
+      ->from('artikel')
+      ->where(['id_artikel'=>$id])
+      ->all();
+      return $this->render('artikelView', [
+          'data' => $data,
+      ]);
+
+    }
+    public function actionPdf($id_riwayat,$id_pasien) {
+        $query = new \yii\db\Query();
+        $dataRiwayat = $query->select('*')
+        ->from('riwayat')
+        ->where(['id_riwayat'=>$id_riwayat])
+        ->all();
+        foreach ($dataRiwayat as $key => $valueR) {
+          $id_dokter = $valueR['id_dokter'];
+        }
+        $dataDokter = $query->select('*')
+        ->from('dokter')
+        ->where(['id_dokter'=>$id_dokter])
+        ->all();
+        foreach ($dataDokter as $key => $valueD) {
+          $id_SIP = $valueD['id_no_izin'];
+        }
+        $dataSIP = $query->select('no_izin')
+        ->from('no_izin_dokter')
+        ->where(['id_no_izin'=>$id_SIP])
+        ->all();
+        $dataPasien = $query->select('*')
+        ->from('pasien')
+        ->where(['id_pasien'=>$id_pasien])
+        ->all();
+
+        $mpdf = new mPDF;
+        $mpdf->WriteHTML($this->renderPartial('createPdf',['dataRiwayat'=>$dataRiwayat,'dataPasien'=>$dataPasien,'dataDokter'=>$dataDokter,'dataSIP'=>$dataSIP,]));
+        $mpdf->Output();
+        exit;
     }
 }
