@@ -2,8 +2,7 @@
 namespace frontend\models;
 
 use frontend\components\NodeLogger;
-use frontend\models\Dokter;
-use frontend\models\IzinDokter;
+use frontend\models\Pasien;
 use common\models\User;
 use yii\base\Model;
 
@@ -84,7 +83,7 @@ class PasienSignupForm extends Model
          $user->setPassword($this->password);
          $user->generateAuthKey();
          $user->email = $this->email;
-         $user->role = 8;
+         $user->role = 7;
         if ($user->save()) {
              $query = new \yii\db\Query();
                     $showId = $query->select(['id'])
@@ -96,21 +95,21 @@ class PasienSignupForm extends Model
                         $this->id_user = $value['id'];
                     }
 
-            $dokter = new Dokter();
+            $pasien = new Pasien();
 
-            $modelnya =IzinDokter::find()->where(['no_izin' => $this->id_no_izin])->One();
-            $dokter->id_no_izin = $modelnya->id_no_izin;
-            $dokter->email = $this->email;
-            $dokter->alamat_rumah = $this->alamat_rumah;
-            $dokter->alamat_praktik = $this->alamat_praktik;
-            $dokter->nama_dokter = $this->nama_dokter;
-            $dokter->no_telp = $this->no_telp;
-            $dokter->password = $this->password;
-            $dokter->id_kota = $this->id_kota;
-            $dokter->id_provinsi = $this->id_provinsi;
-            $dokter->id_user = $this->id_user;
+            $pasien->nama_pasien = $this->nama_pasien;
+            $pasien->alamat = $this->alamat;
+            $pasien->no_telp_pasien = $this->no_telp_pasien;
+            $pasien->gol_darah = $this->gol_darah;
+            $pasien->jenis_kelamin = $this->jenis_kelamin;
+            $pasien->nik = $this->nik;
+            $pasien->id_kota = $this->id_kota;
+            $pasien->id_provinsi = $this->id_provinsi;
+            $pasien->id_user = $this->id_user;
+            $pasien->email = $this->email;
+            $pasien->password = $this->password;
 
-             return $dokter->save() ? $dokter : null;
+             return $pasien->save() ? $pasien : null;
 
         }        
        
