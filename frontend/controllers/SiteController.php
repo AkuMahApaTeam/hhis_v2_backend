@@ -255,6 +255,19 @@ class SiteController extends Controller
         ]);
     }
 
+     public function actionPasiensignup()
+    {
+        $model = new PasienSignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                $this->actionLogout();
+            }
+        }
+        return $this->render('pasiensignup', [
+            'model' => $model,
+        ]);
+    }
+
     /**
      * Requests password reset.
      *

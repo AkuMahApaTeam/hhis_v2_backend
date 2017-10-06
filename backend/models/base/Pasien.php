@@ -19,6 +19,8 @@ use Yii;
  * @property integer $id_kota
  * @property integer $id_provinsi
  * @property integer $id_user
+ * @property string $email 
+ * @property string $password 
  *
  * @property \app\models\Riwayat[] $riwayats
  * @property string $aliasModel
@@ -43,12 +45,14 @@ abstract class Pasien extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'id_kota', 'id_provinsi', 'id_user'], 'required'],
+            [['nik', 'id_kota', 'id_provinsi', 'id_user', 'email', 'password'], 'required'],
             [['nik', 'id_kota', 'id_provinsi', 'id_user'], 'integer'],
             [['nama_pasien', 'alamat'], 'string', 'max' => 255],
             [['no_telp_pasien'], 'string', 'max' => 15],
             [['gol_darah'], 'string', 'max' => 2],
-            [['jenis_kelamin'], 'string', 'max' => 10]
+            [['jenis_kelamin'], 'string', 'max' => 10],
+            [['email'], 'string', 'max' => 50],
+            [['password'], 'string', 'max' => 25]
         ];
     }
 
@@ -68,6 +72,8 @@ abstract class Pasien extends \yii\db\ActiveRecord
             'id_kota' => 'Id Kota',
             'id_provinsi' => 'Id Provinsi',
             'id_user' => 'Id User',
+            'email' => 'Email', 
+            'password' => 'Password', 
         ];
     }
 
