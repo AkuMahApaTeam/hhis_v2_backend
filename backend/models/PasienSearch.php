@@ -18,8 +18,9 @@ class PasienSearch extends Pasien
 public function rules()
 {
 return [
-[['id_pasien', 'nik', 'id_kota', 'id_provinsi', 'id_user'], 'integer'],
-            [['nama_pasien', 'alamat', 'no_telp_pasien', 'gol_darah', 'jenis_kelamin'], 'safe'],
+// [['id_pasien', 'nik', 'id_kota', 'id_provinsi', 'id_user'], 'integer'],
+    [['nik'], 'integer'],
+            // [['nama_pasien', 'alamat', 'no_telp_pasien', 'gol_darah', 'jenis_kelamin'], 'safe'],
 ];
 }
 
@@ -56,18 +57,18 @@ return $dataProvider;
 }
 
 $query->andFilterWhere([
-            'id_pasien' => $this->id_pasien,
+            // 'id_pasien' => $this->id_pasien,
             'nik' => $this->nik,
-            'id_kota' => $this->id_kota,
-            'id_provinsi' => $this->id_provinsi,
-            'id_user' => $this->id_user,
+            // 'id_kota' => $this->id_kota,
+            // 'id_provinsi' => $this->id_provinsi,
+            // 'id_user' => $this->id_user,
         ]);
 
-        $query->andFilterWhere(['like', 'nama_pasien', $this->nama_pasien])
-            ->andFilterWhere(['like', 'alamat', $this->alamat])
-            ->andFilterWhere(['like', 'no_telp_pasien', $this->no_telp_pasien])
-            ->andFilterWhere(['like', 'gol_darah', $this->gol_darah])
-            ->andFilterWhere(['like', 'jenis_kelamin', $this->jenis_kelamin]);
+        // $query->andFilterWhere(['like', 'nama_pasien', $this->nama_pasien])
+        //     ->andFilterWhere(['like', 'alamat', $this->alamat])
+        //     ->andFilterWhere(['like', 'no_telp_pasien', $this->no_telp_pasien])
+        //     ->andFilterWhere(['like', 'gol_darah', $this->gol_darah])
+        //     ->andFilterWhere(['like', 'jenis_kelamin', $this->jenis_kelamin]);
 
 return $dataProvider;
 }

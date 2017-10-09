@@ -78,7 +78,8 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
     </div>
 
     <hr />
-
+ <div class="box box-primary">
+     <div class="box-body">
     <div class="table-responsive">
         <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -129,6 +130,8 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
         ],
         ]); ?>
     </div>
+</div>
+</div>
 
 </div>
 

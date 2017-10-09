@@ -74,4 +74,39 @@ $query->andFilterWhere([
 
 return $dataProvider;
 }
+public function searchDetail($params,$id_pasien)
+{
+$query = Riwayat::find();
+
+$dataProvider = new ActiveDataProvider([
+'query' => $query,
+]);
+
+$this->load($params);
+
+if (!$this->validate()) {
+// uncomment the following line if you do not want to any records when validation fails
+// $query->where('0=1');
+return $dataProvider;
+}
+
+$query->andFilterWhere([
+            'id_riwayat' => $this->id_riwayat,
+            'id_pasien' => $id_pasien,
+            'id_dokter' => $this->id_dokter,
+            'umur' => $this->umur,
+            'berat_badan' => $this->berat_badan,
+            'tinggi_badan' => $this->tinggi_badan,
+            'diagnosa' => $this->diagnosa,
+            'tgl_periksa' => $this->tgl_periksa,
+        ]);
+
+        $query->andFilterWhere(['like', 'riwayat_kesehatan_keluarga', $this->riwayat_kesehatan_keluarga])
+            ->andFilterWhere(['like', 'keluhan_utama', $this->keluhan_utama])
+            ->andFilterWhere(['like', 'larangan', $this->larangan])
+            ->andFilterWhere(['like', 'note', $this->note])
+            ->andFilterWhere(['like', 'perawatan', $this->perawatan]);
+
+return $dataProvider;
+}
 }

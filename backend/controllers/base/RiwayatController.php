@@ -45,6 +45,25 @@ return $this->render('index', [
     'searchModel' => $searchModel,
 ]);
 }
+    public function actionDetail($id)
+    {
+        // $mitra = MasterMitra::findOne($dataMitra['id']);
+
+
+        //            $kontrak = $mitra-> getMasterKontraks()->andWhere('status=1')->andWhere('flag=1')->all();
+        $searchModel = new RiwayatSearch;
+        $dataProvider = $searchModel->searchDetail($_GET, $id);
+
+        Tabs::clearLocalStorage();
+
+        Url::remember();
+        \Yii::$app->session['__crudReturnUrl'] = null;
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+        ]);
+    }
 
 /**
 * Displays a single Riwayat model.
@@ -70,6 +89,7 @@ return $this->render('view', [
 */
 public function actionCreate()
 {
+	ini_set('memory_limit', '-1');
 $model = new Riwayat;
 
 try {

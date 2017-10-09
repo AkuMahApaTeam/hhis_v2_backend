@@ -5,7 +5,8 @@
 namespace backend\controllers\base;
 
 use app\models\Pasien;
-    use backend\models\PasienSearch;
+use backend\models\PasienSearch;
+use common\models\User;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;
@@ -68,13 +69,53 @@ return $this->render('view', [
 * If creation is successful, the browser will be redirected to the 'view' page.
 * @return mixed
 */
+
 public function actionCreate()
 {
 $model = new Pasien;
-
 try {
-if ($model->load($_POST) && $model->save()) {
+if ($model->load($_POST) ){
+	  if($model->validate()){
+
+
+	  $user = new User();
+         $user->username = $model->email;
+         $user->setPassword($model->password);
+         $user->generateAuthKey();
+         $user->email = $model->email;
+         $user->role = 7;
+                 if ($user->save()) {
+             $query = new \yii\db\Query();
+                    $showId = $query->select(['id'])
+                        ->from('user')
+                        ->orderBy(['id' => SORT_DESC])
+                        ->limit(1)
+                        ->all();
+            foreach ($showId as $key => $value) {
+                        $model->id_user = $value['id'];
+                    }
+                     $model->save();
+
+            // $pasien = new Pasien();
+
+            // $pasien->nama_pasien = $model->nama_pasien;
+            // $pasien->alamat = $model->alamat;
+            // $pasien->no_telp_pasien = $model->no_telp_pasien;
+            // $pasien->gol_darah = $model->gol_darah;
+            // $pasien->jenis_kelamin = $model->jenis_kelamin;
+            // $pasien->nik = $model->nik;
+            // $pasien->id_kota = $model->id_kota;
+            // $pasien->id_provinsi = $model->id_provinsi;
+            // $pasien->id_user = $model->id_user;
+            // $pasien->email = $model->email;
+            // $pasien->password = $model->password;
+
+           
+
+        }  
+
 return $this->redirect(['view', 'id_pasien' => $model->id_pasien]);
+}
 } elseif (!\Yii::$app->request->isPost) {
 $model->load($_GET);
 }
