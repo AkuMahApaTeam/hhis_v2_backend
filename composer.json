@@ -43,7 +43,7 @@
     "kartik-v/yii2-field-range": "*",
     "kartik-v/dependent-dropdown": "dev-master",
     "kartik-v/yii2-editable": "*",
-    "kartik-v/yii2-money": "*"
+    "kartik-v/yii2-money": "*",
     "kartik-v/yii2-grid": "@dev"
     },
   "require-dev": {
