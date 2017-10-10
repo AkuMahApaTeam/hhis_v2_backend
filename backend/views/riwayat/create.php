@@ -12,14 +12,6 @@ $this->params['breadcrumbs'][] = ['label' =>  'Riwayats', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="giiant-crud riwayat-create">
-
-    <h1>
-       Riwayat
-        <small>
-                        <?= $model->id_riwayat ?>
-        </small>
-    </h1>
-
     <div class="clearfix crud-navigation">
         <div class="pull-left">
             <?=             Html::a(
@@ -33,6 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
     'model' => $model,
+    'modelPasien' => $modelPasien,
+    'modelDokter' => $modelDokter,
     ]); ?>
 
 </div>

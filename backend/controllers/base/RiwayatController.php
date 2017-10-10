@@ -5,7 +5,9 @@
 namespace backend\controllers\base;
 
 use app\models\Riwayat;
-    use backend\models\RiwayatSearch;
+use app\models\Pasien;
+use app\models\Dokter;
+use backend\models\RiwayatSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;
@@ -53,6 +55,7 @@ return $this->render('index', [
         //            $kontrak = $mitra-> getMasterKontraks()->andWhere('status=1')->andWhere('flag=1')->all();
         $searchModel = new RiwayatSearch;
         $dataProvider = $searchModel->searchDetail($_GET, $id);
+        $modelPasien = $this->findModelPasien($id);
 
         Tabs::clearLocalStorage();
 
@@ -62,6 +65,7 @@ return $this->render('index', [
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
+            'modelPasien' => $modelPasien,
         ]);
     }
 
@@ -87,22 +91,43 @@ return $this->render('view', [
 * If creation is successful, the browser will be redirected to the 'view' page.
 * @return mixed
 */
-public function actionCreate()
+public function actionCreate($id,$username)
 {
-	ini_set('memory_limit', '-1');
+	
 $model = new Riwayat;
 
 try {
-if ($model->load($_POST) && $model->save()) {
-return $this->redirect(['view', 'id_riwayat' => $model->id_riwayat]);
+if ($model->load($_POST) &&  $model->validate() && $model->save()) {
+return $this->redirect(['detail','id'=>$id]);
 } elseif (!\Yii::$app->request->isPost) {
 $model->load($_GET);
+ $modelPasien = $this->findModelPasien($id);
+  $query = new \yii\db\Query();
+             $showId = $query->select('id_dokter')->from('dokter')->where(['email'=>$username])->one();
+
+             foreach ($showId as $val) {
+              $id_dokter = $val[0];
+             }
+            $modelDokter = $this->findModelDokter($id_dokter);
 }
 } catch (\Exception $e) {
 $msg = (isset($e->errorInfo[2]))?$e->errorInfo[2]:$e->getMessage();
 $model->addError('_exception', $msg);
 }
-return $this->render('create', ['model' => $model]);
+ $modelPasien = $this->findModelPasien($id);
+  $query = new \yii\db\Query();
+             $showId = $query->select('id_dokter')->from('dokter')->where(['email'=>$username])->one();
+             foreach ($showId as $val) {
+              $id_dokter = $val[0];
+             }
+ $modelDokter = $this->findModelDokter($id_dokter);
+ 
+return $this->render('create', 
+    [   'model' => $model,
+        'modelPasien' => $modelPasien,
+        'modelDokter' => $modelDokter,
+
+    ]);
 }
 
 /**
@@ -170,4 +195,20 @@ return $model;
 throw new HttpException(404, 'The requested page does not exist.');
 }
 }
+ protected function findModelPasien($id)
+    {
+        if (($model = Pasien::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    protected function findModelDokter($id)
+    {
+        if (($model = Dokter::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 }

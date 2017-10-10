@@ -5,7 +5,7 @@
 namespace backend\controllers\base;
 
 use app\models\Artikel;
-    use backend\models\ArtikelSearch;
+use backend\models\ArtikelSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;
