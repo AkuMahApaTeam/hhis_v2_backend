@@ -60,6 +60,11 @@ class RegisterListenersPass implements CompilerPassInterface
         $definition = $container->findDefinition($this->dispatcherService);
 
         foreach ($container->findTaggedServiceIds($this->listenerTag, true) as $id => $events) {
+<<<<<<< HEAD
+=======
+            $def = $container->getDefinition($id);
+
+>>>>>>> api
             foreach ($events as $event) {
                 $priority = isset($event['priority']) ? $event['priority'] : 0;
 

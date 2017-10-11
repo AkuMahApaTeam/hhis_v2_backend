@@ -24,7 +24,11 @@
         msgNo: 'Nej',
         msgNoFilesSelected: 'Inga filer valda',
         msgCancelled: 'Avbruten',
+<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
+=======
+        msgPlaceholder: 'Select {files}...',
+>>>>>>> api
         msgZoomModalHeading: 'detaljerad förhandsgranskning',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'Filen "{name}" (<b>{size} KB</b>) är för liten och måste vara större än <b>{minSize} KB</b>.',

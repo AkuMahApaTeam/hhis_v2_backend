@@ -17,10 +17,16 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
     );
 
     public static $prefixLengthsPsr4 = array (
+        'z' => 
+        array (
+            'zxbodya\\yii2\\tinymce\\' => 21,
+            'zxbodya\\yii2\\elfinder\\' => 22,
+        ),
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
             'yii\\redactor\\' => 13,
+            'yii\\jui\\' => 8,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
@@ -153,6 +159,14 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
     );
 
     public static $prefixDirsPsr4 = array (
+        'zxbodya\\yii2\\tinymce\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zxbodya/yii2-tinymce',
+        ),
+        'zxbodya\\yii2\\elfinder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zxbodya/yii2-elfinder',
+        ),
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',
@@ -160,6 +174,10 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
         'yii\\redactor\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiidoc/yii2-redactor',
+        ),
+        'yii\\jui\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-jui',
         ),
         'yii\\gii\\' => 
         array (
@@ -398,11 +416,19 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
             0 => __DIR__ . '/..' . '/cebe/markdown',
         ),
         'Symfony\\Polyfill\\Php72\\' => 
+<<<<<<< HEAD
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
         ),
         'Symfony\\Polyfill\\Php70\\' => 
         array (
+=======
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
+        ),
+        'Symfony\\Polyfill\\Php70\\' => 
+        array (
+>>>>>>> api
             0 => __DIR__ . '/..' . '/symfony/polyfill-php70',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
@@ -502,8 +528,28 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
     public static $classMap = array (
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+<<<<<<< HEAD
         'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
         'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
+=======
+        'CGIF' => __DIR__ . '/..' . '/mpdf/mpdf/classes/gif.php',
+        'CGIFCOLORTABLE' => __DIR__ . '/..' . '/mpdf/mpdf/classes/gif.php',
+        'CGIFFILEHEADER' => __DIR__ . '/..' . '/mpdf/mpdf/classes/gif.php',
+        'CGIFIMAGE' => __DIR__ . '/..' . '/mpdf/mpdf/classes/gif.php',
+        'CGIFIMAGEHEADER' => __DIR__ . '/..' . '/mpdf/mpdf/classes/gif.php',
+        'CGIFLZW' => __DIR__ . '/..' . '/mpdf/mpdf/classes/gif.php',
+        'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
+        'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
+        'FPDF_TPL' => __DIR__ . '/..' . '/setasign/fpdi/fpdf_tpl.php',
+        'FPDI' => __DIR__ . '/..' . '/setasign/fpdi/fpdi.php',
+        'FilterASCII85' => __DIR__ . '/..' . '/setasign/fpdi/filters/FilterASCII85.php',
+        'FilterASCIIHexDecode' => __DIR__ . '/..' . '/setasign/fpdi/filters/FilterASCIIHexDecode.php',
+        'FilterLZW' => __DIR__ . '/..' . '/setasign/fpdi/filters/FilterLZW.php',
+        'INDIC' => __DIR__ . '/..' . '/mpdf/mpdf/classes/indic.php',
+        'MYANMAR' => __DIR__ . '/..' . '/mpdf/mpdf/classes/myanmar.php',
+        'OTLdump' => __DIR__ . '/..' . '/mpdf/mpdf/classes/otl_dump.php',
+        'PDFBarcode' => __DIR__ . '/..' . '/mpdf/mpdf/classes/barcode.php',
+>>>>>>> api
         'ParseError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
         'PhpCsFixer\\Diff\\v1_4\\Chunk' => __DIR__ . '/..' . '/php-cs-fixer/diff/src/v1_4/Chunk.php',
         'PhpCsFixer\\Diff\\v1_4\\Diff' => __DIR__ . '/..' . '/php-cs-fixer/diff/src/v1_4/Diff.php',
@@ -532,7 +578,28 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
         'PhpCsFixer\\Tests\\Test\\Assert\\AssertTokensTrait' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/Test/Assert/AssertTokensTrait.php',
         'PhpCsFixer\\Tests\\Test\\IntegrationCase' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/Test/IntegrationCase.php',
         'PhpCsFixer\\Tests\\Test\\IntegrationCaseFactory' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/Test/IntegrationCaseFactory.php',
+<<<<<<< HEAD
         'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
+=======
+        'SEA' => __DIR__ . '/..' . '/mpdf/mpdf/classes/sea.php',
+        'SVG' => __DIR__ . '/..' . '/mpdf/mpdf/classes/svg.php',
+        'TTFontFile' => __DIR__ . '/..' . '/mpdf/mpdf/classes/ttfontsuni.php',
+        'TTFontFile_Analysis' => __DIR__ . '/..' . '/mpdf/mpdf/classes/ttfontsuni_analysis.php',
+        'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
+        'UCDN' => __DIR__ . '/..' . '/mpdf/mpdf/classes/ucdn.php',
+        'bmp' => __DIR__ . '/..' . '/mpdf/mpdf/classes/bmp.php',
+        'cssmgr' => __DIR__ . '/..' . '/mpdf/mpdf/classes/cssmgr.php',
+        'directw' => __DIR__ . '/..' . '/mpdf/mpdf/classes/directw.php',
+        'fpdi_pdf_parser' => __DIR__ . '/..' . '/setasign/fpdi/fpdi_pdf_parser.php',
+        'grad' => __DIR__ . '/..' . '/mpdf/mpdf/classes/grad.php',
+        'mPDF' => __DIR__ . '/..' . '/mpdf/mpdf/mpdf.php',
+        'meter' => __DIR__ . '/..' . '/mpdf/mpdf/classes/meter.php',
+        'mpdfform' => __DIR__ . '/..' . '/mpdf/mpdf/classes/mpdfform.php',
+        'otl' => __DIR__ . '/..' . '/mpdf/mpdf/classes/otl.php',
+        'pdf_context' => __DIR__ . '/..' . '/setasign/fpdi/pdf_context.php',
+        'tocontents' => __DIR__ . '/..' . '/mpdf/mpdf/classes/tocontents.php',
+        'wmf' => __DIR__ . '/..' . '/mpdf/mpdf/classes/wmf.php',
+>>>>>>> api
     );
 
     public static function getInitializer(ClassLoader $loader)

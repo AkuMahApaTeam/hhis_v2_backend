@@ -24,10 +24,17 @@
         msgNo: 'No',
         msgNoFilesSelected: '',
         msgCancelled: 'cancel·lat',
+<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
         msgZoomModalHeading: 'Vista prèvia detallada',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
+=======
+        msgPlaceholder: 'Select {files}...',
+        msgZoomModalHeading: 'Vista prèvia detallada',
+        msgFileRequired: 'You must select a file to upload.',
+        msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
+>>>>>>> api
         msgSizeTooLarge: 'Arxiu "{name}" (<b>{size} KB</b>) excedeix la mida màxima permès de <b>{maxSize} KB</b>.',
         msgFilesTooLess: 'Heu de seleccionar almenys <b>{n}</b> {files} a carregar.',
         msgFilesTooMany: 'El nombre d\'arxius seleccionats a carregar <b>({n})</b> excedeix el límit màxim permès de <b>{m}</b>.',
@@ -50,11 +57,19 @@
             'object': 'object'
         },
         msgUploadAborted: 'La càrrega d\'arxius s\'ha cancel·lat',
+<<<<<<< HEAD
         msgUploadThreshold: 'Processing...',
         msgUploadBegin: 'Initializing...',
         msgUploadEnd: 'Done',
         msgUploadEmpty: 'No valid data available for upload.',
         msgUploadError: 'Error',
+=======
+        msgUploadThreshold: 'Processing...',
+        msgUploadBegin: 'Initializing...',
+        msgUploadEnd: 'Done',
+        msgUploadEmpty: 'No valid data available for upload.',
+        msgUploadError: 'Error',
+>>>>>>> api
         msgValidationError: 'Error de validació',
         msgLoading: 'Pujant fitxer {index} de {files} &hellip;',
         msgProgress: 'Pujant fitxer {index} de {files} - {name} - {percent}% completat.',
@@ -66,6 +81,7 @@
         msgImageHeightLarge: 'L\'alçada de la imatge "{name}" no pot excedir de {size} px.',
         msgImageResizeError: 'No s\'ha pogut obtenir les dimensions d\'imatge per canviar la mida.',
         msgImageResizeException: 'Error en canviar la mida de la imatge.<pre>{errors}</pre>',
+<<<<<<< HEAD
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         ajaxOperations: {
@@ -74,13 +90,28 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
+=======
+        msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
+        msgAjaxProgressError: '{operation} failed',
+        ajaxOperations: {
+            deleteThumb: 'file delete',
+            uploadThumb: 'file upload',
+            uploadBatch: 'batch file upload',
+            uploadExtra: 'form data upload'
+        },
+>>>>>>> api
         dropZoneTitle: 'Arrossegueu i deixeu anar aquí els arxius &hellip;',
         dropZoneClickTitle: '<br>(or click to select {files})',
         fileActionSettings: {
             removeTitle: 'Eliminar arxiu',
             uploadTitle: 'Pujar arxiu',
+<<<<<<< HEAD
             uploadRetryTitle: 'Retry upload',
             downloadTitle: 'Download file',
+=======
+            uploadRetryTitle: 'Retry upload',
+            downloadTitle: 'Download file',
+>>>>>>> api
             zoomTitle: 'Veure detalls',
             dragTitle: 'Move / Rearrange',
             indicatorNewTitle: 'No pujat encara',

@@ -1,17 +1,22 @@
 <?php
 namespace frontend\models;
 
+<<<<<<< HEAD
 use frontend\components\NodeLogger;
 use frontend\models\Dokter;
 use frontend\models\IzinDokter;
 use common\models\User;
+=======
+>>>>>>> api
 use yii\base\Model;
+use common\models\User;
 
 /**
  * Signup form
  */
 class SignupForm extends Model
 {
+<<<<<<< HEAD
     public $id_no_izin;
     public $email;
     public $alamat_rumah;
@@ -22,6 +27,12 @@ class SignupForm extends Model
     public $id_kota;
     public $id_provinsi;
     public $id_user;
+=======
+    public   $id_dokter;
+    public $username;
+    public $password;
+
+>>>>>>> api
 
     /**
      * @inheritdoc
@@ -29,6 +40,7 @@ class SignupForm extends Model
     public function rules()
     {
         return [
+<<<<<<< HEAD
             ['id_no_izin', 'trim'],
             ['id_no_izin', 'required'],
             [['id_no_izin'], 'exist', 'skipOnError' => true, 'targetClass' => IzinDokter::className(), 'targetAttribute' => ['id_no_izin' => 'no_izin']],
@@ -60,6 +72,15 @@ class SignupForm extends Model
         
 
             
+=======
+            ['username', 'trim'],
+            ['username', 'required'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['password', 'required'],
+            ['password', 'string', 'min' => 6],
+>>>>>>> api
         ];
     }
 
@@ -68,11 +89,12 @@ class SignupForm extends Model
      *
      * @return User|null the saved model or null if saving fails
      */
-    public function signup()
+    public function signup($id_dokter, $nama_dokter, $password)
     {
         if (!$this->validate()) {
             return null;
         }
+<<<<<<< HEAD
         
          $user = new User();
          $user->username = $this->email;
@@ -109,5 +131,14 @@ class SignupForm extends Model
 
         }        
        
+=======
+
+        $user = new User();
+        $user->id_dokter = $id_dokter;
+        $user->username = $nama_dokter;
+        $user->setPassword($password);
+        $user->generateAuthKey();
+        return $user->save() ? $user : null;
+>>>>>>> api
     }
 }

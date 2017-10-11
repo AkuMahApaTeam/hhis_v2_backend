@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'zxbodya\\yii2\\tinymce\\' => array($vendorDir . '/zxbodya/yii2-tinymce'),
+    'zxbodya\\yii2\\elfinder\\' => array($vendorDir . '/zxbodya/yii2-elfinder'),
     'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer'),
     'yii\\redactor\\' => array($vendorDir . '/yiidoc/yii2-redactor'),
+    'yii\\jui\\' => array($vendorDir . '/yiisoft/yii2-jui'),
     'yii\\gii\\' => array($vendorDir . '/yiisoft/yii2-gii'),
     'yii\\faker\\' => array($vendorDir . '/yiisoft/yii2-faker'),
     'yii\\debug\\' => array($vendorDir . '/yiisoft/yii2-debug'),

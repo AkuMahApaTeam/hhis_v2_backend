@@ -54,9 +54,18 @@ tests                    contains various tests for the advanced application
 ```
 
 
+<<<<<<< HEAD
 # API DOCUMENTATION
 
 ## cara penggunaan
 
 http://hhis.dev/api/web/index.php/v1/<nama_controller>/<nama_method>
 
+=======
+
+# cara menjalankan hhis
+taruh project di /var/www/html
+cd hhis_v2_backend
+mkdir backend/web/assets
+mkdir frontend/web/assets
+>>>>>>> api

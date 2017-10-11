@@ -25,7 +25,11 @@
         msgNo: 'жоқ',
         msgNoFilesSelected: 'Файл таңдалмады',
         msgCancelled: 'Күші жойылған',
+<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
+=======
+        msgPlaceholder: 'Select {files}...',
+>>>>>>> api
         msgZoomModalHeading: 'Алдын ала толық көру',
         msgSizeTooLarge: 'Файл "{name}" (<b>{size} KB</b>) ең үлкен <b>{maxSize} KB</b> өлшемінен асады.',
         msgFilesTooLess: 'Жүктеу үшіy кемінде <b>{n}</b> {files} таңдау керек.',
@@ -39,10 +43,17 @@
         msgInvalidFileExtension: '"{name}" тыйым салынған файл кеңейтімі. Тек "{extensions}" рұқсат.',
         msgUploadAborted: 'Файлды жүктеу доғарылды',
         msgUploadThreshold: 'Өңдеу...',
+<<<<<<< HEAD
         msgUploadBegin: 'Initializing...',
         msgUploadEnd: 'Done',
         msgUploadEmpty: 'No valid data available for upload.',
         msgUploadError: 'Error',
+=======
+        msgUploadBegin: 'Initializing...',
+        msgUploadEnd: 'Done',
+        msgUploadEmpty: 'No valid data available for upload.',
+        msgUploadError: 'Error',
+>>>>>>> api
         msgValidationError: 'Тексеру қатесі',
         msgLoading: '{index} файлды {files} &hellip; жүктеу',
         msgProgress: '{index} файлды {files} - {name} - {percent}% жүктеу аяқталды.',
@@ -54,6 +65,7 @@
         msgImageHeightLarge: '"{name}" суреттің биіктігі {size} px. аспау керек',
         msgImageResizeError: 'Суреттің өлшемін өзгерту үшін, мөлшері алынбады',
         msgImageResizeException: 'Суреттің мөлшерлерін өзгерткен кезде қателік пайда болды.<pre>{errors}</pre>',
+<<<<<<< HEAD
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         ajaxOperations: {
@@ -62,13 +74,28 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
+=======
+        msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
+        msgAjaxProgressError: '{operation} failed',
+        ajaxOperations: {
+            deleteThumb: 'file delete',
+            uploadThumb: 'file upload',
+            uploadBatch: 'batch file upload',
+            uploadExtra: 'form data upload'
+        },
+>>>>>>> api
         dropZoneTitle: 'Файлдарды осында сүйреу &hellip;',
         dropZoneClickTitle: '<br>(or click to select {files})',
         fileActionSettings: {
             removeTitle: 'Файлды өшіру',
             uploadTitle: 'Файлды жүктеу',
+<<<<<<< HEAD
             uploadRetryTitle: 'Retry upload',
             downloadTitle: 'Download file',
+=======
+            uploadRetryTitle: 'Retry upload',
+            downloadTitle: 'Download file',
+>>>>>>> api
             zoomTitle: 'мәліметтерді көру',
             dragTitle: 'Орнын ауыстыру',
             indicatorNewTitle: 'Жүктелген жоқ',

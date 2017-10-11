@@ -24,10 +24,17 @@
         msgNo: 'Не',
         msgNoFilesSelected: '',
         msgCancelled: 'Отменен',
+<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
         msgZoomModalHeading: 'Детайлен преглед',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
+=======
+        msgPlaceholder: 'Select {files}...',
+        msgZoomModalHeading: 'Детайлен преглед',
+        msgFileRequired: 'You must select a file to upload.',
+        msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
+>>>>>>> api
         msgSizeTooLarge: 'Файла "{name}" (<b>{size} KB</b>) надвишава максималните разрешени <b>{maxSize} KB</b>.',
         msgFilesTooLess: 'Трябва да изберете поне <b>{n}</b> {files} файла.',
         msgFilesTooMany: 'Броя файлове избрани за качване <b>({n})</b> надвишава ограниченито от максимум <b>{m}</b>.',
@@ -50,11 +57,19 @@
             'object': 'object'
         },
         msgUploadAborted: 'Качите файла, бе прекратена',
+<<<<<<< HEAD
         msgUploadThreshold: 'Processing...',
         msgUploadBegin: 'Initializing...',
         msgUploadEnd: 'Done',
         msgUploadEmpty: 'No valid data available for upload.',
         msgUploadError: 'Error',
+=======
+        msgUploadThreshold: 'Processing...',
+        msgUploadBegin: 'Initializing...',
+        msgUploadEnd: 'Done',
+        msgUploadEmpty: 'No valid data available for upload.',
+        msgUploadError: 'Error',
+>>>>>>> api
         msgValidationError: 'утвърждаване грешка',
         msgLoading: 'Зареждане на файл {index} от общо {files} &hellip;',
         msgProgress: 'Зареждане на файл {index} от общо {files} - {name} - {percent}% завършени.',
@@ -66,6 +81,7 @@
         msgImageHeightLarge: 'Височината на изображението "{name}" нее може да е по-голяма от {size} px.',
         msgImageResizeError: 'Не може да размерите на изображението, за да промените размера.',
         msgImageResizeException: 'Грешка при промяна на размера на изображението.<pre>{errors}</pre>',
+<<<<<<< HEAD
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         ajaxOperations: {
@@ -74,13 +90,28 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
+=======
+        msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
+        msgAjaxProgressError: '{operation} failed',
+        ajaxOperations: {
+            deleteThumb: 'file delete',
+            uploadThumb: 'file upload',
+            uploadBatch: 'batch file upload',
+            uploadExtra: 'form data upload'
+        },
+>>>>>>> api
         dropZoneTitle: 'Пуснете файловете тук &hellip;',
         dropZoneClickTitle: '<br>(or click to select {files})',
         fileActionSettings: {
             removeTitle: 'Махни файл',
             uploadTitle: 'Качване на файл',
+<<<<<<< HEAD
             uploadRetryTitle: 'Retry upload',
             downloadTitle: 'Download file',
+=======
+            uploadRetryTitle: 'Retry upload',
+            downloadTitle: 'Download file',
+>>>>>>> api
             zoomTitle: 'Вижте детайли',
             dragTitle: 'Move / Rearrange',
             indicatorNewTitle: 'Все още не е качил',

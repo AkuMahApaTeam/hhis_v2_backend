@@ -24,7 +24,11 @@
         msgNo: 'Non',
         msgNoFilesSelected: '',
         msgCancelled: 'Annulé',
+<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
+=======
+        msgPlaceholder: 'Select {files}...',
+>>>>>>> api
         msgZoomModalHeading: 'Aperçu détaillé',
         msgFileRequired: 'Vous devez sélectionner un fichier à uploader.',
         msgSizeTooSmall: 'Le fichier "{name}" (<b>{size} KB</b>) est inférieur à la taille minimale de <b>{minSize} KB</b>.',

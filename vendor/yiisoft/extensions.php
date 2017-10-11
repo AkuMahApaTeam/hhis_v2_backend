@@ -39,6 +39,18 @@ return array (
       '@hscstudio/mimin' => $vendorDir . '/hscstudio/yii2-mimin',
     ),
   ),
+<<<<<<< HEAD
+=======
+  'yiisoft/yii2-bootstrap' => 
+  array (
+    'name' => 'yiisoft/yii2-bootstrap',
+    'version' => '2.0.6.0',
+    'alias' => 
+    array (
+      '@yii/bootstrap' => $vendorDir . '/yiisoft/yii2-bootstrap',
+    ),
+  ),
+>>>>>>> api
   'kartik-v/yii2-krajee-base' => 
   array (
     'name' => 'kartik-v/yii2-krajee-base',
@@ -291,6 +303,7 @@ return array (
       '@yii/swiftmailer' => $vendorDir . '/yiisoft/yii2-swiftmailer',
     ),
   ),
+<<<<<<< HEAD
   'yiisoft/yii2-bootstrap' => 
   array (
     'name' => 'yiisoft/yii2-bootstrap',
@@ -300,6 +313,8 @@ return array (
       '@yii/bootstrap' => $vendorDir . '/yiisoft/yii2-bootstrap',
     ),
   ),
+=======
+>>>>>>> api
   'dmstr/yii2-adminlte-asset' => 
   array (
     'name' => 'dmstr/yii2-adminlte-asset',
@@ -342,7 +357,11 @@ return array (
   'unclead/yii2-multiple-input' => 
   array (
     'name' => 'unclead/yii2-multiple-input',
+<<<<<<< HEAD
     'version' => '2.11.0.0',
+=======
+    'version' => '2.10.0.0',
+>>>>>>> api
     'alias' => 
     array (
       '@unclead/multipleinput/examples' => $vendorDir . '/unclead/yii2-multiple-input/examples',
@@ -398,7 +417,11 @@ return array (
   'yiisoft/yii2-debug' => 
   array (
     'name' => 'yiisoft/yii2-debug',
+<<<<<<< HEAD
     'version' => '2.0.12.0',
+=======
+    'version' => '2.0.11.0',
+>>>>>>> api
     'alias' => 
     array (
       '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug',
@@ -456,6 +479,36 @@ return array (
     'alias' => 
     array (
       '@kartik/popover' => $vendorDir . '/kartik-v/yii2-popover-x',
+<<<<<<< HEAD
+=======
+    ),
+  ),
+  'zxbodya/yii2-tinymce' => 
+  array (
+    'name' => 'zxbodya/yii2-tinymce',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@zxbodya/yii2/tinymce' => $vendorDir . '/zxbodya/yii2-tinymce',
+    ),
+  ),
+  'yiisoft/yii2-jui' => 
+  array (
+    'name' => 'yiisoft/yii2-jui',
+    'version' => '2.0.0.0-beta',
+    'alias' => 
+    array (
+      '@yii/jui' => $vendorDir . '/yiisoft/yii2-jui',
+    ),
+  ),
+  'zxbodya/yii2-elfinder' => 
+  array (
+    'name' => 'zxbodya/yii2-elfinder',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@zxbodya/yii2/elfinder' => $vendorDir . '/zxbodya/yii2-elfinder',
+>>>>>>> api
     ),
   ),
 );

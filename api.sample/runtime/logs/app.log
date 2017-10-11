@@ -1,0 +1,105 @@
+2017-10-05 02:42:58 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "".' in /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('', Array)
+#1 /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/hhis_v2_backend/api/web/index.php(16): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/hhis_v2_backend/api/web/index.php(16): yii\base\Application->run()
+#2 {main}
+2017-10-05 02:42:58 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf-backend' => '76f1c43e88fbe09ed83266b3d15961e4c34b3faec6feb634cddc163b44e9051aa:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"Zêÿ­©µÌ;
+3*žb=)ÐÒHüÛ8µ.…*$\";}'
+    'advanced-backend' => 'mh8fr313ube2qgqv1n7bnb6n86'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/hhis_v2_backend/api/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=76f1c43e88fbe09ed83266b3d15961e4c34b3faec6feb634cddc163b44e9051aa%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22Z%EA%1A%10%FF%0B%AD%A9%B5%CC%3B%0A3%2A%9Eb%02%3D%29%D0%D2H%FC%DB8%B5.%1C%85%1C%2A%24%22%3B%7D; advanced-backend=mh8fr313ube2qgqv1n7bnb6n86'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.18 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/hhis_v2_backend/api/web/index.php'
+    'REMOTE_PORT' => '49788'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/hhis_v2_backend/api/web/'
+    'SCRIPT_NAME' => '/hhis_v2_backend/api/web/index.php'
+    'PHP_SELF' => '/hhis_v2_backend/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1507171378.877
+    'REQUEST_TIME' => 1507171378
+]
+2017-10-05 22:20:29 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "".' in /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('', Array)
+#1 /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/hhis_v2_backend/api/web/index.php(16): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /var/www/html/hhis_v2_backend/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/hhis_v2_backend/api/web/index.php(16): yii\base\Application->run()
+#2 {main}
+2017-10-05 22:20:29 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf-backend' => 'd02804ebc585c7d342497daa02d9d05455e96b97658c2d3635661ec1e3642da7a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"bå8s]ìrÐèrœ©£?S„ÃžJ,ç1ß¦ñ¹\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'hhis.dev'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://hhis.dev/api/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=d02804ebc585c7d342497daa02d9d05455e96b97658c2d3635661ec1e3642da7a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22b%E5%14%188%1Bs%5D%ECr%D0%E8r%9C%1A%A9%A3%3FS%84%C3%9EJ%2C%E71%DF%05%A6%9D%F1%B9%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.18 (Ubuntu) Server at hhis.dev Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Ubuntu)'
+    'SERVER_NAME' => 'hhis.dev'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/hhis_v2_backend'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/hhis_v2_backend'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/hhis_v2_backend/api/web/index.php'
+    'REMOTE_PORT' => '49260'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1507242029.513
+    'REQUEST_TIME' => 1507242029
+]

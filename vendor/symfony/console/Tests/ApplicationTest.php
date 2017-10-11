@@ -652,6 +652,7 @@ class ApplicationTest extends TestCase
         putenv('COLUMNS=120');
     }
 
+<<<<<<< HEAD
     public function testRenderExceptionLineBreaks()
     {
         $application = $this->getMockBuilder('Symfony\Component\Console\Application')->setMethods(array('getTerminalWidth'))->getMock();
@@ -668,6 +669,8 @@ class ApplicationTest extends TestCase
         $this->assertStringEqualsFile(self::$fixturesPath.'/application_renderexception_linebreaks.txt', $tester->getDisplay(true), '->renderException() keep multiple line breaks');
     }
 
+=======
+>>>>>>> api
     public function testRun()
     {
         $application = new Application();
@@ -1042,7 +1045,28 @@ class ApplicationTest extends TestCase
         $dispatcher->addListener('console.command', function () {
             throw new \RuntimeException('foo');
         });
+<<<<<<< HEAD
+=======
 
+        $application = new Application();
+        $application->setDispatcher($dispatcher);
+        $application->setAutoExit(false);
+
+        $application->register('foo')->setCode(function (InputInterface $input, OutputInterface $output) {
+            $output->write('foo.');
+        });
+
+        $tester = new ApplicationTester($application);
+        $tester->run(array('command' => 'foo'));
+        $this->assertContains('before.error.after.', $tester->getDisplay());
+    }
+>>>>>>> api
+
+    /**
+     * @requires PHP 7
+     */
+    public function testRunWithError()
+    {
         $application = new Application();
         $application->setDispatcher($dispatcher);
         $application->setAutoExit(false);
@@ -1125,6 +1149,7 @@ class ApplicationTest extends TestCase
         $tester->run(array('command' => 'unknown'));
         $this->assertContains('silenced command not found', $tester->getDisplay());
         $this->assertEquals(1, $tester->getStatusCode());
+<<<<<<< HEAD
     }
 
     /**
@@ -1155,6 +1180,38 @@ class ApplicationTest extends TestCase
     }
 
     /**
+=======
+    }
+
+    /**
+     * @group legacy
+     * @expectedDeprecation The "ConsoleEvents::EXCEPTION" event is deprecated since Symfony 3.3 and will be removed in 4.0. Listen to the "ConsoleEvents::ERROR" event instead.
+     */
+    public function testLegacyExceptionListenersAreStillTriggered()
+    {
+        $dispatcher = $this->getDispatcher();
+        $dispatcher->addListener('console.exception', function (ConsoleExceptionEvent $event) {
+            $event->getOutput()->write('caught.');
+
+            $event->setException(new \RuntimeException('replaced in caught.'));
+        });
+
+        $application = new Application();
+        $application->setDispatcher($dispatcher);
+        $application->setAutoExit(false);
+
+        $application->register('foo')->setCode(function (InputInterface $input, OutputInterface $output) {
+            throw new \RuntimeException('foo');
+        });
+
+        $tester = new ApplicationTester($application);
+        $tester->run(array('command' => 'foo'));
+        $this->assertContains('before.caught.error.after.', $tester->getDisplay());
+        $this->assertContains('replaced in caught.', $tester->getDisplay());
+    }
+
+    /**
+>>>>>>> api
      * @requires PHP 7
      */
     public function testErrorIsRethrownIfNotHandledByConsoleErrorEvent()
@@ -1350,6 +1407,7 @@ class ApplicationTest extends TestCase
 
         $tester = new ApplicationTester($application);
         $tester->run(array(), array('interactive' => false));
+<<<<<<< HEAD
 
         $this->assertEquals('called'.PHP_EOL, $tester->getDisplay(), 'Application runs the default set command if different from \'list\' command');
     }
@@ -1358,6 +1416,16 @@ class ApplicationTest extends TestCase
     {
         $command = new \FooOptCommand();
 
+=======
+
+        $this->assertEquals('called'.PHP_EOL, $tester->getDisplay(), 'Application runs the default set command if different from \'list\' command');
+    }
+
+    public function testSetRunCustomDefaultCommandWithOption()
+    {
+        $command = new \FooOptCommand();
+
+>>>>>>> api
         $application = new Application();
         $application->setAutoExit(false);
         $application->add($command);

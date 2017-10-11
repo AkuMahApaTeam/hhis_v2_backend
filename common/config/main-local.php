@@ -3,16 +3,22 @@ if($_SERVER["SERVER_NAME"] == "localhost"){
     $db_conn = [
         'class' => 'yii\db\Connection',
         'dsn' => 'mysql:host=127.0.0.1;dbname=hhis2',
-        'username' => 'root',
-        'password' => '',
+        'username' => 'hhis2',
+        'password' => 'action',
         'charset' => 'utf8',
     ];
 }else{
     $db_conn = [
         'class' => 'yii\db\Connection',
+<<<<<<< HEAD
         'dsn' => 'mysql:host=localhost;dbname=hhis',
         'username' => 'hhis',
         'password' => 'Qwerty123!@#',
+=======
+        'dsn' => 'mysql:host=localhost;dbname=hhis2',
+        'username' => 'hhis2',
+        'password' => 'action',
+>>>>>>> api
         'charset' => 'utf8',
     ];
 }

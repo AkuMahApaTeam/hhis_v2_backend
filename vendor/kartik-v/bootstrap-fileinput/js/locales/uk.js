@@ -25,10 +25,17 @@
         msgNo: 'Немає',
         msgNoFilesSelected: '',
         msgCancelled: 'Cкасовано',
+<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
         msgZoomModalHeading: 'Детальний превью',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
+=======
+        msgPlaceholder: 'Select {files}...',
+        msgZoomModalHeading: 'Детальний превью',
+        msgFileRequired: 'You must select a file to upload.',
+        msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
+>>>>>>> api
         msgSizeTooLarge: 'Файл "{name}" (<b>{size} KB</b>) перевищує максимальний розмір <b>{maxSize} KB</b>.',
         msgFilesTooLess: 'Ви повинні вибрати як мінімум <b>{n}</b> {files} для загрузки.',
         msgFilesTooMany: 'Кількість вибраних файлів <b>({n})</b> перевищує максимально допустиму кількість <b>{m}</b>.',
@@ -51,11 +58,19 @@
             'object': 'object'
         },
         msgUploadAborted: 'Вивантаження файлу перервана',
+<<<<<<< HEAD
         msgUploadThreshold: 'Processing...',
         msgUploadBegin: 'Initializing...',
         msgUploadEnd: 'Done',
         msgUploadEmpty: 'No valid data available for upload.',
         msgUploadError: 'Error',
+=======
+        msgUploadThreshold: 'Processing...',
+        msgUploadBegin: 'Initializing...',
+        msgUploadEnd: 'Done',
+        msgUploadEmpty: 'No valid data available for upload.',
+        msgUploadError: 'Error',
+>>>>>>> api
         msgValidationError: 'Помилка перевірки',
         msgLoading: 'Загрузка файла {index} із {files} &hellip;',
         msgProgress: 'Загрузка файла {index} із {files} - {name} - {percent}% завершено.',
@@ -67,6 +82,7 @@
         msgImageHeightLarge: 'Висота зображення "{name}" не може перевищувати {size} px.',
         msgImageResizeError: 'Не вдалося розміри зображення, щоб змінити розмір.',
         msgImageResizeException: 'Помилка при зміні розміру зображення.<pre>{errors}</pre>',
+<<<<<<< HEAD
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         ajaxOperations: {
@@ -75,13 +91,28 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
+=======
+        msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
+        msgAjaxProgressError: '{operation} failed',
+        ajaxOperations: {
+            deleteThumb: 'file delete',
+            uploadThumb: 'file upload',
+            uploadBatch: 'batch file upload',
+            uploadExtra: 'form data upload'
+        },
+>>>>>>> api
         dropZoneTitle: 'Перетягніть файли сюди &hellip;',
         dropZoneClickTitle: '<br>(or click to select {files})',
         fileActionSettings: {
             removeTitle: 'Видалити файл',
             uploadTitle: 'Загрузити файл',
+<<<<<<< HEAD
             uploadRetryTitle: 'Retry upload',
             downloadTitle: 'Download file',
+=======
+            uploadRetryTitle: 'Retry upload',
+            downloadTitle: 'Download file',
+>>>>>>> api
             zoomTitle: 'Подивитися деталі',
             dragTitle: 'Move / Rearrange',
             indicatorNewTitle: 'Ще не загружено',

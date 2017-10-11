@@ -3,7 +3,11 @@
 * https://github.com/RobinHerbots/Inputmask
 * Copyright (c) 2010 - 2017 Robin Herbots
 * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
+<<<<<<< HEAD
 * Version: 3.3.9
+=======
+* Version: 3.3.8
+>>>>>>> api
 */
 
 !function(modules) {
@@ -2885,10 +2889,17 @@
         var content = item[1] || "", cssMapping = item[3];
         if (!cssMapping) return content;
         if (useSourceMap && "function" == typeof btoa) {
+<<<<<<< HEAD
             var sourceMapping = toComment(cssMapping);
             return [ content ].concat(cssMapping.sources.map(function(source) {
                 return "/*# sourceURL=" + cssMapping.sourceRoot + source + " */";
             })).concat([ sourceMapping ]).join("\n");
+=======
+            var sourceMapping = toComment(cssMapping), sourceURLs = cssMapping.sources.map(function(source) {
+                return "/*# sourceURL=" + cssMapping.sourceRoot + source + " */";
+            });
+            return [ content ].concat(sourceURLs).concat([ sourceMapping ]).join("\n");
+>>>>>>> api
         }
         return [ content ].join("\n");
     }

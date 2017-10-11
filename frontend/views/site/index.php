@@ -1,404 +1,314 @@
 <?php
 
-$this->title = 'IKA ITS';
-$this->params['breadcrumbs'][] = $this->title;
+/* @var $this yii\web\View */
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\grid\GridView;
+use yii\helpers\Url;
+$this->title = 'My HHIS';
 ?>
-<style type="text/css">
-    article > div > h1 {
-        margin: 0 !important;
-    }
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <!--banner-->
+    <section id="banner" class="banner">
+        <div class="bg-color">
+            <nav class="navbar navbar-default navbar-fixed-top">
+              <div class="container">
+                <div class="col-md-12">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#"><img src="<?php echo Url::to('@web/img/hhis.png'); ?>" class="img-responsive logo" style="width: 120px; margin-top: -16px;"></a>
 
-    article > div > .date {
-        margin-top: 0;
-    }
-</style>
-<div class="homepage-banner has-bg-image" data-bg-image="<?= Yii::$app->request->baseUrl ?>/img/people-connected.jpg"
-     style="padding: 0">
-    <div class="container"
-         style="height:100%;width:100%;background-color: rgba(0,0,0,0.6);padding: 120px 0px 110px 0px; ">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2" style="text-align: center">
-                <h3>Welcome <?php if(Yii::$app->user->isGuest){
-                        echo "Alumni!";
-                    }else{
-                        echo Yii::$app->user->identity->nama_lengkap;
-                    } ?></h3>
-                <h5 style="color: white;margin-bottom: 0">Looking for your classmate? let us help you.</h5>
-            </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="#banner">Home</a></li>
+                        <li class=""><a href="#testimonial">Search History</a></li>
+                           <li class=""><a href="#artikel">Artikel</a></li>
+                        <li class=""><a href="#service" >About</a></li>
 
-        </div>
-    </div>
-</div>
-
-<div class="categories"<?php
-if (stristr($_SERVER['HTTP_USER_AGENT'], "Mobile")) { // if mobile browser
-    ?>
-    style="padding: 10px 5px"
-    <?php
-} else { // desktop browser
-    ?>
-    style="padding: 10px 67px"
-    <?php
-}
-?>
->
-    <div class="container">
-        <div class="row" style="vertical-align: middle; padding: 0 15px">
-            <h4 style="float: left">Event & Activity</h4>
-            <a href="#" class="btn btn-primary btn-xs" style="float: right; margin-top: 12px">
-                View More&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
-            </a>
-        </div>
-        <div class="row" style="text-align: left">
-
-            <section class="demo-section">
-                <div class="container">
-                    <div class="row">
-                        <?php
-                        foreach ($modelEvent as $event) {
-                            ?>
-                            <div class="col-sm-4">
-                                <article class="uou-block-7g" data-badge-color="0099ff">
-                                    <img class="image"
-                                         src="<?= Yii::$app->request->baseUrl . '/uploads/event/' . $event->gambar ?>" alt=""
-                                         style="width: 100%;height: 200px;border: 1px;border-style: outset;">
-
-                             
-                                    <div class="content">
-                                        <?php
-                                        $tgl = date_create($event->tanggal);
-                                        $hsltgl = date_format($tgl, "d / M / Y");
-                                        ?>
-                                        <span class="date"><?= $hsltgl ?></span>
-
-                                        <h1><?= $event->judul ?></h1>
-
-                                        <p><?= substr($event->isi, 0, 200) ?></p>
-                                    </div>
-                                </article> <!-- end .uou-block-7g -->
-                            </div>
-                        <?php } ?>
+                        <li class=""><a href="#contact">Contact</a></li>
+                      </ul>
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
-</div>
-<div class="sponsors sponsors-2 has-bg-image" data-bg-image="<?= Yii::$app->request->baseUrl ?>/img/kampusits.jpg"
-     data-bg-color="000" data-bg-opacity=".20">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" style="text-align: center">
-                <h3 class="section-title" style="margin-bottom: 0">Endowment & Donation</h3>
+              </div>
+            </nav>
+            <div class="container">
+                <div class="row">
 
-                <p style="width: 100%; color: #fff;">
-                    University endowment is a donation from alumni and corporate that collected for univeristy
-                </p>
+                  <?php
+                   if($errorM!=null){
+                   ?>
 
-                <div class="sponsors-slider">
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo1_1.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo2_2.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo3_3.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo4_4.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo5_5.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo6_6.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo4_4.png" alt=""
-                                           class="img-responsive"></div>
-                </div>
-                <a href="<?= Yii::$app->request->baseUrl . '/endowment' ?>" class="btn btn-primary"
-                   style="margin-top:50px">
-                    View More&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+                  <div class="col-md-12">
+                    <div class="panel panel-danger">
+                      <div class="panel-heading">
+                        <p>SIP salah / tidak terdaftar</p>
+                      </div>
+                    </div>
+                  </div>
 
-<div class="categories" <?php
-if (stristr($_SERVER['HTTP_USER_AGENT'], "Mobile")) { // if mobile browser
-    ?>
-    style="padding: 10px 5px"
-    <?php
-} else { // desktop browser
-    ?>
-    style="padding: 10px 67px"
-    <?php
-}
-?>
->
-    <div class="container">
+                  <?php    } ?>
+                    <div class="banner-info">
+                        <div class="banner-logo text-center">
+                          <img src="<?php echo Url::to('@web/img/hhis.png'); ?>" class="img-responsive logo" style="width: 40%">
 
+                        </div>
+                        <div class="banner-text text-center">
+                            <h1 class="white">find your health history!!</h1>
+                            <p>help you to find and record your health history</p>
+                            <a href="#contact" class="btn btn-appoint">Login a Doctor</a>
+                        </div>
 
-        <div class="row" style="vertical-align: middle; padding: 0 15px">
-            <h4 style="float: left">News & Article</h4>
-            <a href="<?= Yii::$app->request->baseUrl . '/news' ?>" class="btn btn-primary btn-xs"
-               style="float: right; margin-top: 12px">
-                View More&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
-            </a>
-        </div>
-        <div class="row" style="text-align: center">
-            <section class="demo-section">
-
-                <div class="container">
-                    <div class="row">
-                        <?php
-                        foreach ($modelBerita as $berita) {
-                            ?>
-                            <div class="col-sm-4">
-                                <article class="uou-block-7g" data-badge-color="0099ff">
-                                    <img class="image"
-                                         src="<?= Yii::$app->request->baseUrl . '/uploads/berita/' . $berita->gambar ?>"
-                                         alt=""
-                                         style="width: 100%;height: 200px;border: 1px;border-style: outset;">
-
-                                    <span class="badge" style="background-color: rgb(0, 153, 200);">In The Lab</span>
-
-                                    <div class="content">
-                                        <?php
-                                        $tglb = date_create($berita->tanggal);
-                                        $hsltglb = date_format($tglb, "d / M / Y");
-                                        ?>
-                                        <span class="date"><?= $hsltglb ?></span>
-
-                                        <h1><?= $berita->judul ?></h1>
-
-                                        <p><?= substr($berita->isi, 0, 200) ?></p>
-                                    </div>
-                                </article> <!-- end .uou-block-7g -->
-                            </div>
-                        <?php } ?>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
+    </section>
+    <!--/ banner-->
 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="category-block">
-                    <div class="category-header header-jobs">
-                        <h5>Proffesional Database</h5>
+         <!--testimonial-->
+    <section id="testimonial" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="ser-title">Search Your Health History</h2>
+                    <hr class="botm-line">
+                </div>
+                <div class="col-md-8">
 
+                    <?php  echo $this->render('/pasien/_search', ['model' => $searchModel]); ?>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!--/ testimonial-->
+
+    <!--artikel-->
+<section id="artikel" class="section-padding">
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12">
+               <h2 class="ser-title">Article</h2>
+               <hr class="botm-line">
+           </div>
+           <?php
+          //  $query = new \yii\db\Query();
+          //  $data = $query->select(['judul','abstrak','id_artikel'])
+          //  ->from('artikel')
+          //  ->all();
+           foreach($showArtikel as $key=>$value){
+             ?>
+               <div class="col-md-4" style="margin-top : 2%">
+                 <div class="panel panel-success" style="text-align:center">
+                   <div class="panel-heading">
+                      <h3 class="panel-title"><?php echo $value['judul'] ; ?></h3>
+                  </div>
+                  <div class="panel-body">
+                    <?php echo $value['abstrak'];?>...<?= Html::a('<span class="glyphicon glyphicon-eye-open" style="color:orange"></span>',['viewarticle','id' => $value['id_artikel']],['class' => 'circle btn btn-succes']) ?>
+
+                  </div>
+            </div>
+           </div>
+              <?php }
+              ?>
+
+       </div>
+       <div class="row">
+         <div class="col-md-12">
+           <?php
+           echo \yii\widgets\LinkPager::widget([
+             'pagination' => $pages,
+           ]);
+            ?>
+         </div>
+       </div>
+   </div>
+</section>
+<!--/ artikell-->
+
+
+
+
+        <!--service-->
+    <section id="service" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <h2 class="ser-title">Who Are We ?</h2>
+                    <hr class="botm-line">
+                    <p>
+Health History Information System (HHIS) will help you to find and record your medical history, HHIS help doctors to find information on the patient's medical history.</p>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="service-info">
                         <div class="icon">
-                            <div class="icon-inner">
-                                <i class="fa fa-search"></i>
-                            </div>
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <div class="icon-info">
+                            <h4>Search Health History</h4>
+                            <p>find your disease history just by input your number KTP.</p>
                         </div>
                     </div>
-                    <div class="category-inner">
-
-                        <div class="uou-progressbar-single">
-                            <h6> Industrial</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 36%"></span>
-              <b class="progress-percent">36%</b>
-            </span>
+                    <div class="service-info">
+                        <div class="icon">
+                            <i class="fa fa-comments"></i>
                         </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Management</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 29%"></span>
-              <b class="progress-percent">29%</b>
-            </span>
+                        <div class="icon-info">
+                            <h4>Chatting with other doctors</h4>
+                            <p>connected the doctor in Indonesia to share knowledge about healthy.</p>
                         </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Accounting</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 14%"></span>
-              <b class="progress-percent">14%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Information Technology</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 10%"></span>
-              <b class="progress-percent">10%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Banking</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 8%"></span>
-              <b class="progress-percent">8%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Other</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 3%"></span>
-              <b class="progress-percent">3%</b>
-            </span>
-                        </div>
-
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="category-block">
-                    <div class="category-header header-business">
-                        <h5>Business Directory</h5>
-
+                <div class="col-md-4 col-sm-4">
+                    <div class="service-info">
                         <div class="icon">
-                            <div class="icon-inner">
-                                <i class="fa fa-suitcase"></i>
-                            </div>
+                            <i class="fa fa-book"></i>
+                        </div>
+                        <div class="icon-info">
+                            <h4>Record Health History</h4>
+                            <p>
+Help noted your disease history.</p>
                         </div>
                     </div>
-                    <div class="category-inner">
-
-                        <div class="uou-progressbar-single">
-                            <h6> Contractor Services</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 36%"></span>
-              <b class="progress-percent">36%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Industrial Supply</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 29%"></span>
-              <b class="progress-percent">29%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> IT Consultant</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 14%"></span>
-              <b class="progress-percent">14%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Food & Baverage</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 10%"></span>
-              <b class="progress-percent">10%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Creative Industry</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 8%"></span>
-              <b class="progress-percent">8%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Other</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 3%"></span>
-              <b class="progress-percent">3%</b>
-            </span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="category-block">
-                    <div class="category-header header-restaurant">
-                        <h5>Regional</h5>
-
+                    <div class="service-info">
                         <div class="icon">
-                            <div class="icon-inner">
-                                <i class="fa fa-search"></i>
-                            </div>
+                            <i class="fa fa-book"></i>
+                        </div>
+                        <div class="icon-info">
+                            <h4>Article</h4>
+                            <p>share healthy information and prevent the disease.</p>
                         </div>
                     </div>
-                    <div class="category-inner">
 
-                        <div class="uou-progressbar-single">
-                            <h6> East Java</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 36%"></span>
-              <b class="progress-percent">36%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Jakarta</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 29%"></span>
-              <b class="progress-percent">29%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> West Java</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 14%"></span>
-              <b class="progress-percent">14%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Australia</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 10%"></span>
-              <b class="progress-percent">10%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Europe</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 8%"></span>
-              <b class="progress-percent">8%</b>
-            </span>
-                        </div>
-
-                        <div class="uou-progressbar-single">
-                            <h6> Other</h6>
-                            <span class="main-bar">
-              <span class="inner-bar one" style="width: 3%"></span>
-              <b class="progress-percent">3%</b>
-            </span>
-                        </div>
-
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!--/ service-->
+    <!--contact-->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="ser-title">Contact us</h2>
+                    <hr class="botm-line">
+                </div>
+                <div class="col-md-4 col-sm-4">
+                  <h3>Contact Info</h3>
+                  <div class="space"></div>
+                  <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i>Informatics Engineering<br>
+                    EEPIS</p>
+                  <div class="space"></div>
+                  <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>info@hhis.com</p>
+                  <div class="space"></div>
+                  <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>+1 800 123 1234</p>
+                </div>
+                <div class="col-md-8 col-sm-8 marb20">
+<!--                    navvv-->
+
+                    <div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Register</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Login</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Admin</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="home">
+      <div class="contact-info">
+                            <h3 class="cnt-ttl">For Doctor Register here!!</h3>
+                            <div class="space"></div>
+                            <div id="sendmessage">Your message has been sent. Thank you!</div>
+                            <div id="errormessage"></div>
+                            <div class="dokter-form">
+                              <?php
+                               if($errorMess!=null || $errorM!=null){
+                               ?>
+                                 <?php $form = ActiveForm::begin(['action' => 'create', 'method' => 'POST']); ?>
+                               <?php }
+                               else{?>
+                                   <?php $form = ActiveForm::begin(['action' => 'index.php/dokter/create', 'method' => 'POST']); ?>
+                             <?php
+                           } ?>
+
+                                <?= $form->field($model, 'id_no_izin')->textInput() ?>
+
+                                <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+                                <?= $form->field($model, 'alamat_rumah')->textInput(['maxlength' => true]) ?>
+
+                                <?= $form->field($model, 'alamat_praktik')->textInput(['maxlength' => true]) ?>
+
+                                <?= $form->field($model, 'nama_dokter')->textInput(['maxlength' => true]) ?>
+
+                                <?= $form->field($model, 'no_telp')->textInput(['maxlength' => true]) ?>
+
+                                <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+
+                                <div class="form-group">
+                                    <?= Html::submitButton($model->isNewRecord ? 'Register' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                                </div>
+
+                                <?php ActiveForm::end(); ?>
+
+                            </div>
+                    </div>
+
+      </div>
+  <div role="tabpanel" class="tab-pane fade" id="profile">
+        <div class="contact-info">
+                            <h3 class="cnt-ttl">For Doctor Login here!!</h3>
+                            <div class="space"></div>
+                            <?php
+                             if($errorMess!=null || $errorM!=null){
+                             ?>
+                                <?php $form = ActiveForm::begin(['id' => 'login-form','action' => '/hhis/frontend/web/index.php/site/login', 'method' => 'POST']); ?>
+                             <?php }
+                             else{?>
+                                  <?php $form = ActiveForm::begin(['id' => 'login-form','action' => 'index.php/site/login', 'method' => 'POST']); ?>
+                           <?php
+                         } ?>
+
+                            <?= $form->field($modellogin, 'username')->textInput(['autofocus' => true]) ?>
+
+                            <?= $form->field($modellogin, 'password')->passwordInput() ?>
+
+                            <?= $form->field($modellogin, 'rememberMe')->checkbox() ?>
+
+                            <div class="form-group">
+                              <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                            </div>
+
+                            <?php ActiveForm::end(); ?>
+          </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="messages">
+          <h3 class="cnt-ttl">Are You Administrator ? </h3>
+
+          <?= Html::a('Login Admin', Url::to('/hhis/backend/web/'), ['class' => 'btn btn-form']) ?>
+
+      </div>
+
 </div>
 
-<div class="sponsors sponsors-2 has-bg-image" data-bg-image="<?= Yii::$app->request->baseUrl ?>/img/banner.jpg"
-     data-bg-color="0082c6" data-bg-opacity=".20">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="section-title">Our Sponsors</h3>
+</div>
 
-                <div class="sponsors-slider">
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo1_1.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo2_2.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo3_3.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo4_4.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo5_5.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo6_6.png" alt=""
-                                           class="img-responsive"></div>
-                    <div class="item"><img src="<?= Yii::$app->request->baseUrl ?>/img/sponsor_logo4_4.png" alt=""
-                                           class="img-responsive"></div>
+<!--                    navv-->
+
+
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+    <!--/ contact-->

@@ -25,10 +25,17 @@
         msgNo: 'Không',
         msgNoFilesSelected: 'Không tập tin nào được chọn',
         msgCancelled: 'Đã hủy',
+<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
         msgZoomModalHeading: 'Chi tiết xem trước',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
+=======
+        msgPlaceholder: 'Select {files}...',
+        msgZoomModalHeading: 'Chi tiết xem trước',
+        msgFileRequired: 'You must select a file to upload.',
+        msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
+>>>>>>> api
         msgSizeTooLarge: 'Tập tin "{name}" (<b>{size} KB</b>) vượt quá kích thước giới hạn cho phép <b>{maxSize} KB</b>.',
         msgFilesTooLess: 'Bạn phải chọn ít nhất <b>{n}</b> {files} để upload.',
         msgFilesTooMany: 'Số lượng tập tin upload <b>({n})</b> vượt quá giới hạn cho phép là <b>{m}</b>.',
@@ -52,10 +59,17 @@
         },
         msgUploadAborted: 'Đã dừng upload',
         msgUploadThreshold: 'Đang xử lý...',
+<<<<<<< HEAD
         msgUploadBegin: 'Initializing...',
         msgUploadEnd: 'Done',
         msgUploadEmpty: 'No valid data available for upload.',
         msgUploadError: 'Error',
+=======
+        msgUploadBegin: 'Initializing...',
+        msgUploadEnd: 'Done',
+        msgUploadEmpty: 'No valid data available for upload.',
+        msgUploadError: 'Error',
+>>>>>>> api
         msgValidationError: 'Lỗi xác nhận',
         msgLoading: 'Đang nạp {index} tập tin trong số {files} &hellip;',
         msgProgress: 'Đang nạp {index} tập tin trong số {files} - {name} - {percent}% hoàn thành.',
@@ -67,6 +81,7 @@
         msgImageHeightLarge: 'Chiều cao của hình ảnh "{name}" không được quá {size} px.',
         msgImageResizeError: 'Không lấy được kích thước của hình ảnh để resize.',
         msgImageResizeException: 'Resize hình ảnh bị lỗi.<pre>{errors}</pre>',
+<<<<<<< HEAD
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         ajaxOperations: {
@@ -75,13 +90,28 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
+=======
+        msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
+        msgAjaxProgressError: '{operation} failed',
+        ajaxOperations: {
+            deleteThumb: 'file delete',
+            uploadThumb: 'file upload',
+            uploadBatch: 'batch file upload',
+            uploadExtra: 'form data upload'
+        },
+>>>>>>> api
         dropZoneTitle: 'Kéo thả tập tin vào đây &hellip;',
         dropZoneClickTitle: '<br>(hoặc click để chọn {files})',
         fileActionSettings: {
             removeTitle: 'Gỡ bỏ',
             uploadTitle: 'Upload tập tin',
+<<<<<<< HEAD
             uploadRetryTitle: 'Retry upload',
             downloadTitle: 'Download file',
+=======
+            uploadRetryTitle: 'Retry upload',
+            downloadTitle: 'Download file',
+>>>>>>> api
             zoomTitle: 'Phóng lớn',
             dragTitle: 'Di chuyển / Sắp xếp lại',
             indicatorNewTitle: 'Chưa được upload',

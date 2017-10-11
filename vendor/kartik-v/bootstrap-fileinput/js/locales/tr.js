@@ -24,7 +24,11 @@
         msgNo: 'Hayır',
         msgNoFilesSelected: '',
         msgCancelled: 'İptal edildi',
+<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
+=======
+        msgPlaceholder: 'Select {files}...',
+>>>>>>> api
         msgZoomModalHeading: 'Detaylı Önizleme',
         msgFileRequired: 'Yüklemek için bir dosya seçmelisiniz.',
         msgSizeTooSmall: '"{name}"(<b>{size} KB</b>) dosyası çok küçük  ve <b>{minSize} KB</b> boyutundan büyük olmalıdır.',

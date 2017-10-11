@@ -31,7 +31,11 @@
         msgNo: 'いいえ',
         msgNoFilesSelected: 'ファイルが選択されていません',
         msgCancelled: 'キャンセル',
+<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
+=======
+        msgPlaceholder: 'Select {files}...',
+>>>>>>> api
         msgZoomModalHeading: 'プレビュー',
         msgFileRequired: 'ファイルを選択してください',
         msgSizeTooSmall: 'ファイル"{name}" (<b>{size} KB</b>)はアップロード可能な下限容量<b>{minSize} KB</b>より小さいです',

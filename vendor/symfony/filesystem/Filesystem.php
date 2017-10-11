@@ -471,6 +471,7 @@ class Filesystem
         $startPathArr = explode('/', trim($startPath, '/'));
         $endPathArr = explode('/', trim($endPath, '/'));
 
+<<<<<<< HEAD
         $normalizePathArray = function ($pathSegments, $absolute) {
             $result = array();
 
@@ -478,6 +479,23 @@ class Filesystem
                 if ('..' === $segment && ($absolute || count($result))) {
                     array_pop($result);
                 } elseif ('.' !== $segment) {
+=======
+        if ('/' !== $startPath[0]) {
+            array_shift($startPathArr);
+        }
+
+        if ('/' !== $endPath[0]) {
+            array_shift($endPathArr);
+        }
+
+        $normalizePathArray = function ($pathSegments) {
+            $result = array();
+
+            foreach ($pathSegments as $segment) {
+                if ('..' === $segment) {
+                    array_pop($result);
+                } else {
+>>>>>>> api
                     $result[] = $segment;
                 }
             }
@@ -485,8 +503,13 @@ class Filesystem
             return $result;
         };
 
+<<<<<<< HEAD
         $startPathArr = $normalizePathArray($startPathArr, static::isAbsolutePath($startPath));
         $endPathArr = $normalizePathArray($endPathArr, static::isAbsolutePath($endPath));
+=======
+        $startPathArr = $normalizePathArray($startPathArr);
+        $endPathArr = $normalizePathArray($endPathArr);
+>>>>>>> api
 
         // Find for which directory the common path stops
         $index = 0;
@@ -663,7 +686,11 @@ class Filesystem
      * @param string $filename The file to be written to
      * @param string $content  The data to write into the file
      *
+<<<<<<< HEAD
      * @throws IOException if the file cannot be written to
+=======
+     * @throws IOException If the file cannot be written to
+>>>>>>> api
      */
     public function dumpFile($filename, $content)
     {
