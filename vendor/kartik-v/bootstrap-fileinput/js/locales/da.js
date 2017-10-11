@@ -24,17 +24,10 @@
         msgNo: 'Ingen',
         msgNoFilesSelected: '',
         msgCancelled: 'aflyst',
-<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
         msgZoomModalHeading: 'Detaljeret visning',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
-=======
-        msgPlaceholder: 'Select {files}...',
-        msgZoomModalHeading: 'Detaljeret visning',
-        msgFileRequired: 'You must select a file to upload.',
-        msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
->>>>>>> api
         msgSizeTooLarge: 'Fil "{name}" (<b>{size} KB</b>) er st&oslash;rre end de tilladte <b>{maxSize} KB</b>.',
         msgFilesTooLess: 'Du skal mindst v&aelig;lge <b>{n}</b> {files} til upload.',
         msgFilesTooMany: '<b>({n})</b> filer valgt til upload, men maks. <b>{m}</b> er tilladt.',
@@ -57,19 +50,11 @@
             'object': 'object'
         },
         msgUploadAborted: 'Filupload annulleret',
-<<<<<<< HEAD
         msgUploadThreshold: 'Processing...',
         msgUploadBegin: 'Initializing...',
         msgUploadEnd: 'Done',
         msgUploadEmpty: 'No valid data available for upload.',
         msgUploadError: 'Error',
-=======
-        msgUploadThreshold: 'Processing...',
-        msgUploadBegin: 'Initializing...',
-        msgUploadEnd: 'Done',
-        msgUploadEmpty: 'No valid data available for upload.',
-        msgUploadError: 'Error',
->>>>>>> api
         msgValidationError: 'Validering Fejl',
         msgLoading: 'Henter fil {index} af {files} &hellip;',
         msgProgress: 'Henter fil {index} af {files} - {name} - {percent}% f&aelig;rdiggjort.',
@@ -81,7 +66,6 @@
         msgImageHeightLarge: 'H&oslash;jden af billedet "{name}" m&aring; ikke v&aelig;re over {size} px.',
         msgImageResizeError: 'Kunne ikke få billedets dimensioner for at ændre størrelsen.',
         msgImageResizeException: 'Fejl ved at ændre størrelsen på billedet.<pre>{errors}</pre>',
-<<<<<<< HEAD
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         ajaxOperations: {
@@ -90,28 +74,13 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
-=======
-        msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
-        msgAjaxProgressError: '{operation} failed',
-        ajaxOperations: {
-            deleteThumb: 'file delete',
-            uploadThumb: 'file upload',
-            uploadBatch: 'batch file upload',
-            uploadExtra: 'form data upload'
-        },
->>>>>>> api
         dropZoneTitle: 'Drag & drop filer her &hellip;',
         dropZoneClickTitle: '<br>(or click to select {files})',
         fileActionSettings: {
             removeTitle: 'Fjern fil',
             uploadTitle: 'Upload fil',
-<<<<<<< HEAD
             uploadRetryTitle: 'Retry upload',
             downloadTitle: 'Download file',
-=======
-            uploadRetryTitle: 'Retry upload',
-            downloadTitle: 'Download file',
->>>>>>> api
             zoomTitle: 'Se detaljer',
             dragTitle: 'Move / Rearrange',
             indicatorNewTitle: 'Ikke uploadet endnu',

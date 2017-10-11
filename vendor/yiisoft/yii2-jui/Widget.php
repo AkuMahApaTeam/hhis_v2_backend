@@ -18,11 +18,6 @@ use yii\helpers\Json;
 class Widget extends \yii\base\Widget
 {
     /**
-     * @var string the jQuery UI theme. This refers to an asset bundle class
-     * representing the JUI theme. The default theme is the official "Smoothness" theme.
-     */
-    public static $theme = 'yii\jui\ThemeAsset';
-    /**
      * @var array the HTML attributes for the widget container tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
@@ -53,10 +48,11 @@ class Widget extends \yii\base\Widget
     public $clientEvents = [];
 
     /**
-     * @var array event names mapped to what should be specified in .on(
+     * @var array event names mapped to what should be specified in `.on()`.
      * If empty, it is assumed that event passed to clientEvents is prefixed with widget name.
      */
     protected $clientEventMap = [];
+
 
     /**
      * Initializes the widget.
@@ -71,27 +67,14 @@ class Widget extends \yii\base\Widget
     }
 
     /**
-     * Registers a specific jQuery UI widget assets
-     * @param string $assetBundle the asset bundle for the widget
-     */
-    protected function registerAssets($assetBundle)
-    {
-        /** @var \yii\web\AssetBundle $assetBundle */
-        $assetBundle::register($this->getView());
-        /** @var \yii\web\AssetBundle $themeAsset */
-        $themeAsset = static::$theme;
-        $themeAsset::register($this->getView());
-    }
-
-    /**
      * Registers a specific jQuery UI widget options
      * @param string $name the name of the jQuery UI widget
-     * @param string $id   the ID of the widget
+     * @param string $id the ID of the widget
      */
     protected function registerClientOptions($name, $id)
     {
         if ($this->clientOptions !== false) {
-            $options = empty($this->clientOptions) ? '' : Json::encode($this->clientOptions);
+            $options = empty($this->clientOptions) ? '' : Json::htmlEncode($this->clientOptions);
             $js = "jQuery('#$id').$name($options);";
             $this->getView()->registerJs($js);
         }
@@ -100,7 +83,7 @@ class Widget extends \yii\base\Widget
     /**
      * Registers a specific jQuery UI widget events
      * @param string $name the name of the jQuery UI widget
-     * @param string $id   the ID of the widget
+     * @param string $id the ID of the widget
      */
     protected function registerClientEvents($name, $id)
     {
@@ -120,17 +103,16 @@ class Widget extends \yii\base\Widget
 
     /**
      * Registers a specific jQuery UI widget asset bundle, initializes it with client options and registers related events
-     * @param string $name        the name of the jQuery UI widget
-     * @param string $assetBundle the asset bundle for the widget
-     * @param string $id          the ID of the widget. If null, it will use the `id` value of [[options]].
+     * @param string $name the name of the jQuery UI widget
+     * @param string $id the ID of the widget. If null, it will use the `id` value of [[options]].
      */
-    protected function registerWidget($name, $assetBundle, $id = null)
+    protected function registerWidget($name, $id = null)
     {
         if ($id === null) {
             $id = $this->options['id'];
         }
-        $this->registerAssets($assetBundle);
-        $this->registerClientOptions($name, $id);
+        JuiAsset::register($this->getView());
         $this->registerClientEvents($name, $id);
+        $this->registerClientOptions($name, $id);
     }
 }

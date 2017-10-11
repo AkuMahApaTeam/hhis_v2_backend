@@ -8,10 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
-<<<<<<< HEAD
-    'DivisionByZeroError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
-    'Error' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/Error.php',
-=======
     'CGIF' => $vendorDir . '/mpdf/mpdf/classes/gif.php',
     'CGIFCOLORTABLE' => $vendorDir . '/mpdf/mpdf/classes/gif.php',
     'CGIFFILEHEADER' => $vendorDir . '/mpdf/mpdf/classes/gif.php',
@@ -29,7 +25,6 @@ return array(
     'MYANMAR' => $vendorDir . '/mpdf/mpdf/classes/myanmar.php',
     'OTLdump' => $vendorDir . '/mpdf/mpdf/classes/otl_dump.php',
     'PDFBarcode' => $vendorDir . '/mpdf/mpdf/classes/barcode.php',
->>>>>>> api
     'ParseError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
     'PhpCsFixer\\Diff\\v1_4\\Chunk' => $vendorDir . '/php-cs-fixer/diff/src/v1_4/Chunk.php',
     'PhpCsFixer\\Diff\\v1_4\\Diff' => $vendorDir . '/php-cs-fixer/diff/src/v1_4/Diff.php',
@@ -58,9 +53,6 @@ return array(
     'PhpCsFixer\\Tests\\Test\\Assert\\AssertTokensTrait' => $vendorDir . '/friendsofphp/php-cs-fixer/tests/Test/Assert/AssertTokensTrait.php',
     'PhpCsFixer\\Tests\\Test\\IntegrationCase' => $vendorDir . '/friendsofphp/php-cs-fixer/tests/Test/IntegrationCase.php',
     'PhpCsFixer\\Tests\\Test\\IntegrationCaseFactory' => $vendorDir . '/friendsofphp/php-cs-fixer/tests/Test/IntegrationCaseFactory.php',
-<<<<<<< HEAD
-    'TypeError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
-=======
     'SEA' => $vendorDir . '/mpdf/mpdf/classes/sea.php',
     'SVG' => $vendorDir . '/mpdf/mpdf/classes/svg.php',
     'TTFontFile' => $vendorDir . '/mpdf/mpdf/classes/ttfontsuni.php',
@@ -79,5 +71,4 @@ return array(
     'pdf_context' => $vendorDir . '/setasign/fpdi/pdf_context.php',
     'tocontents' => $vendorDir . '/mpdf/mpdf/classes/tocontents.php',
     'wmf' => $vendorDir . '/mpdf/mpdf/classes/wmf.php',
->>>>>>> api
 );

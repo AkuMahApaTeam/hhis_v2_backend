@@ -25,11 +25,7 @@
         msgNo: 'Ne',
         msgNoFilesSelected: 'Nepasirinkta jokių failų',
         msgCancelled: 'Atšaukta',
-<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
-=======
-        msgPlaceholder: 'Select {files}...',
->>>>>>> api
         msgZoomModalHeading: 'Detali Peržiūra',
         msgFileRequired: 'Pasirinkite failą įkėlimui.',
         msgSizeTooSmall: 'Failas "{name}" (<b>{size} KB</b>) yra per mažas ir turi būti didesnis nei <b>{minSize} KB</b>.',

@@ -3,10 +3,5 @@
 /frontend/web/assets
 /backend/runtime
 /frontend/runtime
-<<<<<<< HEAD
-/vendor
-/.idea
-=======
 /.idea
 /vendor
->>>>>>> api
