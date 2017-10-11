@@ -52,3 +52,11 @@ environments/            contains environment-based overrides
 tests                    contains various tests for the advanced application
     codeception/         contains tests developed with Codeception PHP Testing Framework
 ```
+
+
+# API DOCUMENTATION
+
+## cara penggunaan
+
+http://hhis.dev/api/web/index.php/v1/<nama_controller>/<nama_method>
+
