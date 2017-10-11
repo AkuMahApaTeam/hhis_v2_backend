@@ -56,13 +56,13 @@ return [
         ],
         'urlManagerFotoBerita' => [
             'class' => 'yii\web\urlManager',
-            'baseUrl' => '/alumniits/frontend/web/uploads/berita',
+            'baseUrl' => '/frontend/web/uploads/berita',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],
         'urlManagerFotoEvent' => [
             'class' => 'yii\web\urlManager',
-            'baseUrl' => '/alumniits/frontend/web/uploads/event',
+            'baseUrl' => '/frontend/web/uploads/event',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],

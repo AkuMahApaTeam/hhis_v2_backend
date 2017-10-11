@@ -44,16 +44,11 @@
     "kartik-v/dependent-dropdown": "dev-master",
     "kartik-v/yii2-editable": "*",
     "kartik-v/yii2-money": "*",
-<<<<<<< HEAD
-    "kartik-v/yii2-grid": "@dev"
-    },
-=======
     "kartik-v/yii2-grid": "@dev",
     "mpdf/mpdf":"*",
     "zxbodya/yii2-tinymce": "*@dev",
     "zxbodya/yii2-elfinder": "*@dev"
   },
->>>>>>> api
   "require-dev": {
     "yiisoft/yii2-codeception": "*",
     "yiisoft/yii2-debug": "*",

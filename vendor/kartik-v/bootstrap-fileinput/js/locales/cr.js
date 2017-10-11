@@ -25,17 +25,10 @@
         msgNo: 'Ne',
         msgNoFilesSelected: '',
         msgCancelled: 'Otkazan',
-<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
         msgZoomModalHeading: 'Detaljni pregled',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
-=======
-        msgPlaceholder: 'Select {files}...',
-        msgZoomModalHeading: 'Detaljni pregled',
-        msgFileRequired: 'You must select a file to upload.',
-        msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
->>>>>>> api
         msgSizeTooLarge: 'Datoteka "{name}" (<b>{size} KB</b>) prekoračuje maksimalnu dozvoljenu veličinu datoteke od <b>{maxSize} KB</b>.',
         msgFilesTooLess: 'Morate odabrati najmanje <b>{n}</b> {files} za otpremanje.',
         msgFilesTooMany: 'Broj datoteka označenih za otpremanje <b>({n})</b> prekoračuje maksimalni dozvoljeni limit od <b>{m}</b>.',
@@ -58,19 +51,11 @@
             'object': 'object'
         },
         msgUploadAborted: 'Prijenos datoteka je prekinut',
-<<<<<<< HEAD
         msgUploadThreshold: 'Processing...',
         msgUploadBegin: 'Initializing...',
         msgUploadEnd: 'Done',
         msgUploadEmpty: 'No valid data available for upload.',
         msgUploadError: 'Error',
-=======
-        msgUploadThreshold: 'Processing...',
-        msgUploadBegin: 'Initializing...',
-        msgUploadEnd: 'Done',
-        msgUploadEmpty: 'No valid data available for upload.',
-        msgUploadError: 'Error',
->>>>>>> api
         msgValidationError: 'Provjera pogrešaka',
         msgLoading: 'Učitavanje datoteke {index} od {files} &hellip;',
         msgProgress: 'Učitavanje datoteke {index} od {files} - {name} - {percent}% završeno.',
@@ -82,7 +67,6 @@
         msgImageHeightLarge: 'Visina slikovnu datoteku "{name}" ne može prelaziti {size} px.',
         msgImageResizeError: 'Nije mogao dobiti dimenzije slike na veličinu.',
         msgImageResizeException: 'Greška prilikom promjene veličine slike.<pre>{errors}</pre>',
-<<<<<<< HEAD
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         ajaxOperations: {
@@ -91,28 +75,13 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
-=======
-        msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
-        msgAjaxProgressError: '{operation} failed',
-        ajaxOperations: {
-            deleteThumb: 'file delete',
-            uploadThumb: 'file upload',
-            uploadBatch: 'batch file upload',
-            uploadExtra: 'form data upload'
-        },
->>>>>>> api
         dropZoneTitle: 'Prevucite datoteke ovde &hellip;',
         dropZoneClickTitle: '<br>(or click to select {files})',
         fileActionSettings: {
             removeTitle: 'Uklonite datoteku',
             uploadTitle: 'Postavi datoteku',
-<<<<<<< HEAD
             uploadRetryTitle: 'Retry upload',
             downloadTitle: 'Download file',
-=======
-            uploadRetryTitle: 'Retry upload',
-            downloadTitle: 'Download file',
->>>>>>> api
             zoomTitle: 'Pregledavati pojedinosti',
             dragTitle: 'Move / Rearrange',
             indicatorNewTitle: 'Još nije učitao',

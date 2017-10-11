@@ -197,30 +197,8 @@ class Application
                     'command' => new InputArgument('command', InputArgument::OPTIONAL, $definition->getArgument('command')->getDescription(), $name),
                 )
             ));
-<<<<<<< HEAD
-=======
         }
 
-        try {
-            $e = $this->runningCommand = null;
-            // the command name MUST be the first element of the input
-            $command = $this->find($name);
-        } catch (\Exception $e) {
-        } catch (\Throwable $e) {
->>>>>>> api
-        }
-        if (null !== $e) {
-            if (null !== $this->dispatcher) {
-                $event = new ConsoleErrorEvent($input, $output, $e);
-                $this->dispatcher->dispatch(ConsoleEvents::ERROR, $event);
-                $e = $event->getError();
-
-                if (0 === $event->getExitCode()) {
-                    return 0;
-                }
-            }
-
-<<<<<<< HEAD
         try {
             $e = $this->runningCommand = null;
             // the command name MUST be the first element of the input
@@ -239,8 +217,6 @@ class Application
                 }
             }
 
-=======
->>>>>>> api
             throw $e;
         }
 
@@ -640,19 +616,11 @@ class Application
             }
             $abbrevs = array_map(function ($cmd) use ($commandList, $usableWidth, $maxLen) {
                 $abbrev = str_pad($cmd, $maxLen, ' ').' '.$commandList[$cmd]->getDescription();
-<<<<<<< HEAD
 
                 return Helper::strlen($abbrev) > $usableWidth ? Helper::substr($abbrev, 0, $usableWidth - 3).'...' : $abbrev;
             }, array_values($commands));
             $suggestions = $this->getAbbreviationSuggestions($abbrevs);
 
-=======
-
-                return Helper::strlen($abbrev) > $usableWidth ? Helper::substr($abbrev, 0, $usableWidth - 3).'...' : $abbrev;
-            }, array_values($commands));
-            $suggestions = $this->getAbbreviationSuggestions($abbrevs);
-
->>>>>>> api
             throw new CommandNotFoundException(sprintf("Command \"%s\" is ambiguous.\nDid you mean one of these?\n%s", $name, $suggestions), array_values($commands));
         }
 

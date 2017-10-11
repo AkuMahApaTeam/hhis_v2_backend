@@ -26,17 +26,10 @@
         msgNoFilesSelected: '',
         msgCancelled: '取消',
         zoomTitle: '詳細資料',
-<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
         msgZoomModalHeading: '內容預覽',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
-=======
-        msgPlaceholder: 'Select {files}...',
-        msgZoomModalHeading: '內容預覽',
-        msgFileRequired: 'You must select a file to upload.',
-        msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
->>>>>>> api
         msgSizeTooLarge: '檔案 "{name}" (<b>{size} KB</b>) 大小超過上限 <b>{maxSize} KB</b>.',
         msgFilesTooLess: '最少必須選擇 <b>{n}</b> {files} 來上傳. ',
         msgFilesTooMany: '上傳的檔案數量 <b>({n})</b> 超過最大檔案上傳限制 <b>{m}</b>.',
@@ -59,19 +52,11 @@
             'object': 'object'
         },
         msgUploadAborted: '該文件上傳被中止',
-<<<<<<< HEAD
         msgUploadThreshold: 'Processing...',
         msgUploadBegin: 'Initializing...',
         msgUploadEnd: 'Done',
         msgUploadEmpty: 'No valid data available for upload.',
         msgUploadError: 'Error',
-=======
-        msgUploadThreshold: 'Processing...',
-        msgUploadBegin: 'Initializing...',
-        msgUploadEnd: 'Done',
-        msgUploadEmpty: 'No valid data available for upload.',
-        msgUploadError: 'Error',
->>>>>>> api
         msgValidationError: '驗證錯誤',
         msgLoading: '載入第 {index} 個檔案，共 {files} &hellip;',
         msgProgress: '載入第 {index} 個檔案，共 {files} - {name} - {percent}% 成功.',
@@ -83,7 +68,6 @@
         msgImageHeightLarge: '圖檔高度"{name}"不能超過{size}像素(px).',
         msgImageResizeError: '無法獲取的圖像尺寸調整。',
         msgImageResizeException: '錯誤而調整圖像大小。<pre>{errors}</pre>',
-<<<<<<< HEAD
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         ajaxOperations: {
@@ -92,28 +76,13 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
-=======
-        msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
-        msgAjaxProgressError: '{operation} failed',
-        ajaxOperations: {
-            deleteThumb: 'file delete',
-            uploadThumb: 'file upload',
-            uploadBatch: 'batch file upload',
-            uploadExtra: 'form data upload'
-        },
->>>>>>> api
         dropZoneTitle: '拖曳檔案至此 &hellip;',
         dropZoneClickTitle: '<br>(or click to select {files})',
         fileActionSettings: {
             removeTitle: '刪除檔案',
             uploadTitle: '上傳檔案',
-<<<<<<< HEAD
             uploadRetryTitle: 'Retry upload',
             downloadTitle: 'Download file',
-=======
-            uploadRetryTitle: 'Retry upload',
-            downloadTitle: 'Download file',
->>>>>>> api
             zoomTitle: '詳細資料',
             dragTitle: 'Move / Rearrange',
             indicatorNewTitle: '尚未上傳',

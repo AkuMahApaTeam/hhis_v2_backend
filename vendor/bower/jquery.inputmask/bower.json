@@ -1,10 +1,6 @@
 {
   "name": "inputmask",
-<<<<<<< HEAD
   "version": "3.3.9",
-=======
-  "version": "3.3.8",
->>>>>>> api
   "main": [
 	  "./dist/inputmask/inputmask.js",
 	  "./dist/inputmask/inputmask.extensions.js",

@@ -25,11 +25,7 @@
         msgNo: 'Ne',
         msgNoFilesSelected: 'Nobena datoteka ni izbrana',
         msgCancelled: 'Preklicano',
-<<<<<<< HEAD
         msgPlaceholder: 'Select {files}...',
-=======
-        msgPlaceholder: 'Select {files}...',
->>>>>>> api
         msgZoomModalHeading: 'Podroben predogled',
         msgSizeTooLarge: 'Datoteka "{name}" (<b>{size} KB</b>) presega največjo dovoljeno velikost za nalaganje <b>{maxSize} KB</b>.',
         msgFilesTooLess: 'Za nalaganje morate izbrati vsaj <b>{n}</b> {files}.',
@@ -53,17 +49,10 @@
         },
         msgUploadAborted: 'Nalaganje datoteke je bilo preklicano',
         msgUploadThreshold: 'Procesiram...',
-<<<<<<< HEAD
         msgUploadBegin: 'Initializing...',
         msgUploadEnd: 'Done',
         msgUploadEmpty: 'No valid data available for upload.',
         msgUploadError: 'Error',
-=======
-        msgUploadBegin: 'Initializing...',
-        msgUploadEnd: 'Done',
-        msgUploadEmpty: 'No valid data available for upload.',
-        msgUploadError: 'Error',
->>>>>>> api
         msgValidationError: 'Napaki pri validiranju',
         msgLoading: 'Nalaganje datoteke {index} od {files} &hellip;',
         msgProgress: 'Nalaganje datoteke {index} od {files} - {name} - {percent}% dokončano.',
@@ -75,7 +64,6 @@
         msgImageHeightLarge: 'Višina slike "{name}" ne sme preseči {size} px.',
         msgImageResizeError: 'Nisem mogel pridobiti dimenzij slike za spreminjanje velikosti.',
         msgImageResizeException: 'Napaka pri spreminjanju velikosti slike.<pre>{errors}</pre>',
-<<<<<<< HEAD
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         ajaxOperations: {
@@ -84,28 +72,13 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
-=======
-        msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
-        msgAjaxProgressError: '{operation} failed',
-        ajaxOperations: {
-            deleteThumb: 'file delete',
-            uploadThumb: 'file upload',
-            uploadBatch: 'batch file upload',
-            uploadExtra: 'form data upload'
-        },
->>>>>>> api
         dropZoneTitle: 'Povlecite in spustite datoteke sem &hellip;',
         dropZoneClickTitle: '<br>(ali kliknite sem za izbiro {files})',
         fileActionSettings: {
             removeTitle: 'Odstrani datoteko',
             uploadTitle: 'Naloži datoteko',
-<<<<<<< HEAD
             uploadRetryTitle: 'Retry upload',
             downloadTitle: 'Download file',
-=======
-            uploadRetryTitle: 'Retry upload',
-            downloadTitle: 'Download file',
->>>>>>> api
             zoomTitle: 'Poglej podrobnosti',
             dragTitle: 'Premaki / Razporedi',
             indicatorNewTitle: 'Še ni naloženo',

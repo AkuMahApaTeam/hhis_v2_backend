@@ -33,7 +33,18 @@ use yii\helpers\Html;
  *         'source' => ['USA', 'RUS'],
  *     ],
  * ]);
- *```
+ * ```
+ *
+ * You can also use this widget in an [[yii\widgets\ActiveForm|ActiveForm]] using the [[yii\widgets\ActiveField::widget()|widget()]]
+ * method, for example like this:
+ *
+ * ```php
+ * <?= $form->field($model, 'from_date')->widget(\yii\jui\AutoComplete::classname(), [
+ *     'clientOptions' => [
+ *         'source' => ['USA', 'RUS'],
+ *     ],
+ * ]) ?>
+ * ```
  *
  * @see http://api.jqueryui.com/autocomplete/
  * @author Alexander Kochetov <creocoder@gmail.com>
@@ -47,7 +58,7 @@ class AutoComplete extends InputWidget
     public function run()
     {
         echo $this->renderWidget();
-        $this->registerWidget('autocomplete', AutoCompleteAsset::className());
+        $this->registerWidget('autocomplete');
     }
 
     /**

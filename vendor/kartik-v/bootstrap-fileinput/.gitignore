@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 nuget/content/
 nuget/bootstrap-fileinput.*.nupkg
 .DS_Store
-=======
-nuget/content/
-nuget/bootstrap-fileinput.*.nupkg
-.DS_Store
->>>>>>> api
 .idea

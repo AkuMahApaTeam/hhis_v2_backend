@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Scope
 This pull request includes a
 
@@ -14,21 +13,4 @@ The following changes were made (this change is also documented in the [change l
 -
 
 ## Related Issues
-=======
-## Scope
-This pull request includes a
-
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Translation
-
-## Changes
-The following changes were made (this change is also documented in the [change log](https://github.com/kartik-v/yii2-helpers/blob/master/CHANGE.md)):
-
--
--
--
-
-## Related Issues
->>>>>>> api
 If this is related to an existing ticket, include a link to it as well.

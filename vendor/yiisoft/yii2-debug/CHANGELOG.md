@@ -1,7 +1,6 @@
 Yii Framework 2 debug extension Change Log
 ==========================================
 
-<<<<<<< HEAD
 2.0.12 October 09, 2017
 -----------------------
 
@@ -10,9 +9,6 @@ Yii Framework 2 debug extension Change Log
 
 
 2.0.11 September 06, 2017
-=======
-2.0.11 under development
->>>>>>> api
 ------------------------
 
 - Bug #262: Fixed issue when identity ID is stored in a field different from `id` (samdark)

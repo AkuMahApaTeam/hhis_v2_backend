@@ -204,11 +204,7 @@ class DebugClassLoaderTest extends TestCase
 
         $xError = array(
             'type' => E_USER_DEPRECATED,
-<<<<<<< HEAD
             'message' => 'The "Test\Symfony\Component\Debug\Tests\\'.$class.'" class '.$type.' "Symfony\Component\Debug\Tests\Fixtures\\'.$super.'" that is deprecated but this is a test deprecation notice',
-=======
-            'message' => 'The "Test\Symfony\Component\Debug\Tests\\'.$class.'" class '.$type.' "Symfony\Component\Debug\Tests\Fixtures\\'.$super.'" that is deprecated but this is a test deprecation notice.',
->>>>>>> api
         );
 
         $this->assertSame($xError, $lastError);
