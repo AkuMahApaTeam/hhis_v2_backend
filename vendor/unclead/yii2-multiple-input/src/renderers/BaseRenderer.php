@@ -15,7 +15,7 @@ use yii\helpers\Json;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\base\NotSupportedException;
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\db\ActiveRecordInterface;
 use yii\web\View;
 use yii\widgets\ActiveForm;
@@ -29,7 +29,7 @@ use unclead\multipleinput\components\BaseColumn;
  * Class BaseRenderer
  * @package unclead\multipleinput\renderers
  */
-abstract class BaseRenderer extends Object implements RendererInterface
+abstract class BaseRenderer extends BaseObject implements RendererInterface
 {
     /**
      * @var string the ID of the widget
@@ -125,6 +125,12 @@ abstract class BaseRenderer extends Object implements RendererInterface
      * @internal this property is used when need to allow sorting rows.
      */
     public $sortable = false;
+
+    /**
+     * @var bool whether to render inline error for all input. Default to `false`. Can be override in `columns`
+     * @since 2.10
+     */
+    public $enableError = false;
 
     /**
      * @inheritdoc
@@ -243,6 +249,10 @@ abstract class BaseRenderer extends Object implements RendererInterface
                 $definition['attributeOptions'] = $this->attributeOptions;
             }
 
+            if (!array_key_exists('enableError', $definition)) {
+                $definition['enableError'] = $this->enableError;
+            }
+
             $this->columns[$i] = Yii::createObject($definition);
         }
     }
@@ -314,7 +324,7 @@ abstract class BaseRenderer extends Object implements RendererInterface
 
         if($this->sortable) {
             MultipleInputSortableAsset::register($view);
-            $js .= "$('#{$this->id} table').sortable({containerSelector: 'table', itemPath: '> tbody', itemSelector: 'tr', placeholder: '<tr class=\"placeholder\"/>', handle:'.drag-handle'});";
+            $js .= "$('#{$this->id} table').sorting({containerSelector: 'table', itemPath: '> tbody', itemSelector: 'tr', placeholder: '<tr class=\"placeholder\"/>', handle:'.drag-handle'});";
         }
 
         $view->registerJs($js);
@@ -363,6 +373,14 @@ abstract class BaseRenderer extends Object implements RendererInterface
     protected function isAddButtonPositionRow()
     {
         return in_array(self::POS_ROW, $this->addButtonPosition);
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isAddButtonPositionRowBegin()
+    {
+        return in_array(self::POS_ROW_BEGIN, $this->addButtonPosition);
     }
 
     private function prepareIndexPlaceholder()

@@ -29,6 +29,7 @@ class MultipleInput extends InputWidget
 {
     const POS_HEADER    = RendererInterface::POS_HEADER;
     const POS_ROW       = RendererInterface::POS_ROW;
+    const POS_ROW_BEGIN = RendererInterface::POS_ROW_BEGIN;
     const POS_FOOTER    = RendererInterface::POS_FOOTER;
 
     /**
@@ -128,6 +129,12 @@ class MultipleInput extends InputWidget
      * @internal this property is used when need to allow sorting rows.
      */
     public $sortable = false;
+
+    /**
+     * @var bool whether to render inline error for all input. Default to `false`. Can be override in `columns`
+     * @since 2.10
+     */
+    public $enableError = false;
 
     /**
      * Initialization.
@@ -238,7 +245,8 @@ class MultipleInput extends InputWidget
             'rowOptions'        => $this->rowOptions,
             'context'           => $this,
             'form'              => $this->form,
-            'sortable'          => $this->sortable
+            'sortable'          => $this->sortable,
+            'enableError'       => $this->enableError,
         ];
 
         if ($this->removeButtonOptions !== null) {

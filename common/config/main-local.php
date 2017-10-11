@@ -10,9 +10,9 @@ if($_SERVER["SERVER_NAME"] == "localhost"){
 }else{
     $db_conn = [
         'class' => 'yii\db\Connection',
-        'dsn' => 'mysql:host=localhost;dbname=alumniits',
-        'username' => 'sqlcrmalumni',
-        'password' => 'crmalumni.97',
+        'dsn' => 'mysql:host=localhost;dbname=hhis',
+        'username' => 'hhis',
+        'password' => 'Qwerty123!@#',
         'charset' => 'utf8',
     ];
 }

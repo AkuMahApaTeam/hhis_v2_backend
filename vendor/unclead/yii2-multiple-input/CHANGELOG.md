@@ -1,6 +1,44 @@
 Yii2 multiple input change log
 ==============================
 
+2.12.0
+======
+
+
+2.11.0
+======
+- Added the possibility to substitute buttons before rows
+
+2.10.0
+======
+- #170: Added global options `enableError`
+- #154: Added missing js event: beforeAddRow
+
+2.9.0
+=====
+
+- Pass the added row to `afterAddRow` event
+
+2.8.2
+=====
+
+- Fixed conflict with jQuery UI sortable
+
+2.8.1
+=====
+
+- Fixed client validation
+
+2.8.0
+=====
+
+- #137: added option `nameSuffix` to avoid errors related to duplication of id in case when you use several copies of the widget on a page
+
+2.7.1
+=====
+
+- Fixed assets
+
 2.7.0
 =====
 

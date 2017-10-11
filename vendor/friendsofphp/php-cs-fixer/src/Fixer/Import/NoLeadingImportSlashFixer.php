@@ -15,6 +15,7 @@ namespace PhpCsFixer\Fixer\Import;
 use PhpCsFixer\AbstractFixer;
 use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
+use PhpCsFixer\Tokenizer\CT;
 use PhpCsFixer\Tokenizer\Tokens;
 use PhpCsFixer\Tokenizer\TokensAnalyzer;
 
@@ -26,40 +27,11 @@ final class NoLeadingImportSlashFixer extends AbstractFixer
     /**
      * {@inheritdoc}
      */
-    public function fix(\SplFileInfo $file, Tokens $tokens)
-    {
-        $foundNamespace = $tokens->findGivenKind(T_NAMESPACE);
-        if (empty($foundNamespace)) {
-            return;
-        }
-
-        $tokensAnalyzer = new TokensAnalyzer($tokens);
-        $firstNamespaceIdx = key($foundNamespace);
-
-        $usesIdxs = $tokensAnalyzer->getImportUseIndexes();
-
-        foreach ($usesIdxs as $idx) {
-            if ($idx < $firstNamespaceIdx) {
-                continue;
-            }
-
-            $nextTokenIdx = $tokens->getNextNonWhitespace($idx);
-            $nextToken = $tokens[$nextTokenIdx];
-
-            if ($nextToken->isGivenKind(T_NS_SEPARATOR)) {
-                $nextToken->clear();
-            }
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition()
     {
         return new FixerDefinition(
             'Remove leading slashes in use clauses.',
-            array(new CodeSample("<?php\nnamespace Foo;\nuse \\Bar;"))
+            [new CodeSample("<?php\nnamespace Foo;\nuse \\Bar;")]
         );
     }
 
@@ -78,5 +50,28 @@ final class NoLeadingImportSlashFixer extends AbstractFixer
     public function isCandidate(Tokens $tokens)
     {
         return $tokens->isTokenKindFound(T_USE);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function applyFix(\SplFileInfo $file, Tokens $tokens)
+    {
+        $tokensAnalyzer = new TokensAnalyzer($tokens);
+        $usesIndexes = $tokensAnalyzer->getImportUseIndexes();
+
+        foreach ($usesIndexes as $idx) {
+            $nextTokenIdx = $tokens->getNextMeaningfulToken($idx);
+            $nextToken = $tokens[$nextTokenIdx];
+
+            if ($nextToken->isGivenKind(T_NS_SEPARATOR)) {
+                $tokens->clearAt($nextTokenIdx);
+            } elseif ($nextToken->isGivenKind([CT::T_FUNCTION_IMPORT, CT::T_CONST_IMPORT])) {
+                $nextTokenIdx = $tokens->getNextMeaningfulToken($nextTokenIdx);
+                if ($tokens[$nextTokenIdx]->isGivenKind(T_NS_SEPARATOR)) {
+                    $tokens->clearAt($nextTokenIdx);
+                }
+            }
+        }
     }
 }

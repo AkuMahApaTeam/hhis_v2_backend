@@ -11,7 +11,7 @@ namespace unclead\multipleinput\components;
 use Closure;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\db\ActiveRecordInterface;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -23,7 +23,7 @@ use unclead\multipleinput\renderers\BaseRenderer;
  *
  * @package unclead\multipleinput\components
  */
-abstract class BaseColumn extends Object
+abstract class BaseColumn extends BaseObject
 {
     const TYPE_TEXT_INPUT       = 'textInput';
     const TYPE_HIDDEN_INPUT     = 'hiddenInput';
@@ -120,6 +120,12 @@ abstract class BaseColumn extends Object
      * @since 2.1
      */
     public $attributeOptions = [];
+
+    /**
+     * @var string the unique prefix for attribute's name to avoid id duplication e.g. in case of using Select2 widget.
+     * @since 2.8
+     */
+    public $nameSuffix;
     
     /**
      * @var Model|ActiveRecordInterface|array
