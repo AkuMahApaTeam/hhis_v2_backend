@@ -44,7 +44,8 @@
     "kartik-v/dependent-dropdown": "dev-master",
     "kartik-v/yii2-editable": "*",
     "kartik-v/yii2-money": "*",
-    "kartik-v/yii2-grid": "@dev"
+    "kartik-v/yii2-grid": "@dev",
+    "2amigos/yii2-highcharts-widget": "~1.0"
     },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",

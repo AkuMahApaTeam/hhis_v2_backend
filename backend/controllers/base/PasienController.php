@@ -12,6 +12,7 @@ use yii\web\HttpException;
 use yii\helpers\Url;
 use yii\filters\AccessControl;
 use dmstr\bootstrap\Tabs;
+use yii\data\ActiveDataProvider;
 
 /**
 * PasienController implements the CRUD actions for Pasien model.
@@ -33,9 +34,17 @@ public $enableCsrfValidation = false;
 */
 public function actionIndex()
 {
-    $searchModel  = new PasienSearch;
-    $dataProvider = $searchModel->search($_GET);
-
+    if (\Yii::$app->user->identity->role == 7){
+         $searchModel  = new PasienSearch;
+         $id_usr = \Yii::$app->user->identity->id;
+         $query = Pasien::find()->andWhere('id_user= '.$id_usr);
+         $dataProvider = new ActiveDataProvider([
+             'query' => $query,
+         ]);
+    }else{
+        $searchModel  = new PasienSearch;
+        $dataProvider = $searchModel->search($_GET);
+    }
 Tabs::clearLocalStorage();
 
 Url::remember();

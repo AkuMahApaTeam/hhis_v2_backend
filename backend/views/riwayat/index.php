@@ -91,27 +91,27 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
                 'tableOptions' => ['class' => 'table table-striped table-bordered table-hover'],
         'headerRowOptions' => ['class'=>'x'],
         'columns' => [
-                [
-            'class' => 'yii\grid\ActionColumn',
-            'template' => $actionColumnTemplateString,
-            'buttons' => [
-                'view' => function ($url, $model, $key) {
-                    $options = [
-                        'title' => Yii::t('yii', 'View'),
-                        'aria-label' => Yii::t('yii', 'View'),
-                        'data-pjax' => '0',
-                    ];
-                    return Html::a('<span class="glyphicon glyphicon-file"></span>', $url, $options);
-                }
-            ],
-            'urlCreator' => function($action, $model, $key, $index) {
-                // using the column name as key, not mapping to 'id' like the standard generator
-                $params = is_array($key) ? $key : [$model->primaryKey()[0] => (string) $key];
-                $params[0] = \Yii::$app->controller->id ? \Yii::$app->controller->id . '/' . $action : $action;
-                return Url::toRoute($params);
-            },
-            'contentOptions' => ['nowrap'=>'nowrap']
-        ],
+        //         [
+        //     'class' => 'yii\grid\ActionColumn',
+        //     'template' => $actionColumnTemplateString,
+        //     'buttons' => [
+        //         'view' => function ($url, $model, $key) {
+        //             $options = [
+        //                 'title' => Yii::t('yii', 'View'),
+        //                 'aria-label' => Yii::t('yii', 'View'),
+        //                 'data-pjax' => '0',
+        //             ];
+        //             return Html::a('<span class="glyphicon glyphicon-file"></span>', $url, $options);
+        //         }
+        //     ],
+        //     'urlCreator' => function($action, $model, $key, $index) {
+        //         // using the column name as key, not mapping to 'id' like the standard generator
+        //         $params = is_array($key) ? $key : [$model->primaryKey()[0] => (string) $key];
+        //         $params[0] = \Yii::$app->controller->id ? \Yii::$app->controller->id . '/' . $action : $action;
+        //         return Url::toRoute($params);
+        //     },
+        //     'contentOptions' => ['nowrap'=>'nowrap']
+        // ],
            'tgl_periksa',
             [
                 'class' => yii\grid\DataColumn::className(),

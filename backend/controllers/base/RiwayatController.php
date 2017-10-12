@@ -98,6 +98,7 @@ $model = new Riwayat;
 
 try {
 if ($model->load($_POST) &&  $model->validate() && $model->save()) {
+
 return $this->redirect(['detail','id'=>$id]);
 } elseif (!\Yii::$app->request->isPost) {
 $model->load($_GET);

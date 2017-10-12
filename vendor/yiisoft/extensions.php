@@ -449,4 +449,58 @@ return array (
       '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid',
     ),
   ),
+  '2amigos/yii2-highcharts-widget' => 
+  array (
+    'name' => '2amigos/yii2-highcharts-widget',
+    'version' => '1.0.3.0',
+    'alias' => 
+    array (
+      '@dosamigos/highcharts' => $vendorDir . '/2amigos/yii2-highcharts-widget/src',
+    ),
+  ),
+  'diiimonn/yii2-asset-slimscroll' => 
+  array (
+    'name' => 'diiimonn/yii2-asset-slimscroll',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@diiimonn/assets' => $vendorDir . '/diiimonn/yii2-asset-slimscroll',
+    ),
+  ),
+  'diiimonn/yii2-asset-spinner-canvas' => 
+  array (
+    'name' => 'diiimonn/yii2-asset-spinner-canvas',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@diiimonn/assets' => $vendorDir . '/diiimonn/yii2-asset-spinner-canvas',
+    ),
+  ),
+  'diiimonn/yii2-widget-spinner-canvas' => 
+  array (
+    'name' => 'diiimonn/yii2-widget-spinner-canvas',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@diiimonn/widgets' => $vendorDir . '/diiimonn/yii2-widget-spinner-canvas',
+    ),
+  ),
+  'diiimonn/yii2-widget-checkbox-multiple' => 
+  array (
+    'name' => 'diiimonn/yii2-widget-checkbox-multiple',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@diiimonn/widgets' => $vendorDir . '/diiimonn/yii2-widget-checkbox-multiple',
+    ),
+  ),
+  'wbraganca/yii2-selectivity' => 
+  array (
+    'name' => 'wbraganca/yii2-selectivity',
+    'version' => '1.0.2.0',
+    'alias' => 
+    array (
+      '@wbraganca/selectivity' => $vendorDir . '/wbraganca/yii2-selectivity/src',
+    ),
+  ),
 );

@@ -15,7 +15,7 @@ use Yii;
  * @property string $no_telp_pasien
  * @property string $gol_darah
  * @property string $jenis_kelamin
- * @property integer $nik
+ * @property string $nik
  * @property integer $id_kota
  * @property integer $id_provinsi
  * @property integer $id_user

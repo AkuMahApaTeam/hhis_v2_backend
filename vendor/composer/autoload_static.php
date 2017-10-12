@@ -10,10 +10,10 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '0bd6df6f66b748fa0864bea88a58fa4a' => __DIR__ . '/..' . '/schmunk42/retry/src/retry.php',
         'a7bea2b758e2dc42e25f476fd498182e' => __DIR__ . '/..' . '/symfony/polyfill-xml/bootstrap.php',
         'edc6464955a37aa4d5fbf39d40fb6ee7' => __DIR__ . '/..' . '/symfony/polyfill-php55/bootstrap.php',
         '3e2471375464aac821502deb0ac64275' => __DIR__ . '/..' . '/symfony/polyfill-php54/bootstrap.php',
+        '0bd6df6f66b748fa0864bea88a58fa4a' => __DIR__ . '/..' . '/schmunk42/retry/src/retry.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
     );
 
@@ -29,6 +29,10 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
             'yii\\codeception\\' => 16,
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
+        ),
+        'w' => 
+        array (
+            'wbraganca\\selectivity\\' => 22,
         ),
         'v' => 
         array (
@@ -72,7 +76,6 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
             'kartik\\plugins\\popover\\' => 23,
             'kartik\\plugins\\fileinput\\' => 25,
             'kartik\\plugins\\depdrop\\' => 23,
-            'kartik\\money\\' => 13,
             'kartik\\growl\\' => 13,
             'kartik\\grid\\' => 12,
             'kartik\\form\\' => 12,
@@ -100,6 +103,7 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
             'dosamigos\\taggable\\' => 19,
             'dosamigos\\switchinput\\' => 22,
             'dosamigos\\selectize\\' => 20,
+            'dosamigos\\highcharts\\' => 21,
             'dosamigos\\datepicker\\' => 21,
             'dmstr\\helpers\\' => 14,
             'dmstr\\db\\tests\\' => 15,
@@ -107,6 +111,8 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
             'dmstr\\console\\' => 14,
             'dmstr\\bootstrap\\' => 16,
             'dmstr\\' => 6,
+            'diiimonn\\widgets\\' => 17,
+            'diiimonn\\assets\\' => 16,
         ),
         'c' => 
         array (
@@ -173,6 +179,10 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'wbraganca\\selectivity\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wbraganca/yii2-selectivity/src',
         ),
         'voime\\GoogleMaps\\' => 
         array (
@@ -262,10 +272,6 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
         array (
             0 => __DIR__ . '/..' . '/kartik-v/dependent-dropdown',
         ),
-        'kartik\\money\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-money',
-        ),
         'kartik\\growl\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-growl',
@@ -350,6 +356,10 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
         array (
             0 => __DIR__ . '/..' . '/2amigos/yii2-selectize-widget/src',
         ),
+        'dosamigos\\highcharts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-highcharts-widget/src',
+        ),
         'dosamigos\\datepicker\\' => 
         array (
             0 => __DIR__ . '/..' . '/2amigos/yii2-date-picker-widget/src',
@@ -377,6 +387,16 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
         'dmstr\\' => 
         array (
             0 => __DIR__ . '/..' . '/dmstr/yii2-adminlte-asset',
+        ),
+        'diiimonn\\widgets\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/diiimonn/yii2-widget-spinner-canvas',
+            1 => __DIR__ . '/..' . '/diiimonn/yii2-widget-checkbox-multiple',
+        ),
+        'diiimonn\\assets\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/diiimonn/yii2-asset-slimscroll',
+            1 => __DIR__ . '/..' . '/diiimonn/yii2-asset-spinner-canvas',
         ),
         'cebe\\markdown\\' => 
         array (
