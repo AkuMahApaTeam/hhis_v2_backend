@@ -1,18 +1,18 @@
 <?php
-if($_SERVER["SERVER_NAME"] == "localhost"){
+if($_SERVER["SERVER_NAME"] == "hhis.tk"){
     $db_conn = [
         'class' => 'yii\db\Connection',
-        'dsn' => 'mysql:host=127.0.0.1;dbname=hhis2',
-        'username' => 'root',
-        'password' => '',
+        'dsn' => 'mysql:host=127.0.0.1;dbname=hhis',
+        'username' => 'hhis',
+        'password' => 'Qwerty123!@#',
         'charset' => 'utf8',
     ];
 }else{
     $db_conn = [
         'class' => 'yii\db\Connection',
-        'dsn' => 'mysql:host=localhost;dbname=alumniits',
-        'username' => 'sqlcrmalumni',
-        'password' => 'crmalumni.97',
+        'dsn' => 'mysql:host=localhost;dbname=hhis2',
+        'username' => 'hhis2',
+        'password' => 'action',
         'charset' => 'utf8',
     ];
 }

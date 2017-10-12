@@ -31,6 +31,17 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @inheritdoc
      */
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->isNewRecord) {
+                $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
+            }
+            return true;
+        }
+        return false;
+    }
+
     public static function tableName()
     {
         return '{{%user}}';
