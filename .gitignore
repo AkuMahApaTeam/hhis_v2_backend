@@ -3,5 +3,6 @@
 /frontend/web/assets
 /backend/runtime
 /frontend/runtime
+/frontend
 /.idea
 /vendor
