@@ -11,8 +11,13 @@ if($_SERVER["SERVER_NAME"] == "hhis.tk"){
     $db_conn = [
         'class' => 'yii\db\Connection',
         'dsn' => 'mysql:host=localhost;dbname=hhis2',
+<<<<<<< HEAD
         'username' => 'root',
         'password' => '',
+=======
+        'username' => 'hhis2',
+        'password' => 'action',
+>>>>>>> 69f8bf38bc2befa6078fc891e9a4a9af834b724b
         'charset' => 'utf8',
     ];
 }

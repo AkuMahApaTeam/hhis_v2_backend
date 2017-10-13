@@ -3,6 +3,9 @@
 /frontend/web/assets
 /backend/runtime
 /frontend/runtime
+<<<<<<< HEAD
 /frontend
+=======
+>>>>>>> 69f8bf38bc2befa6078fc891e9a4a9af834b724b
 /.idea
 /vendor

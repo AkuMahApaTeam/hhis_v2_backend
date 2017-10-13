@@ -45,7 +45,10 @@
     "kartik-v/yii2-editable": "*",
     "kartik-v/yii2-money": "*",
     "kartik-v/yii2-grid": "@dev",
+<<<<<<< HEAD
     "2amigos/yii2-highcharts-widget": "~1.0",
+=======
+>>>>>>> 69f8bf38bc2befa6078fc891e9a4a9af834b724b
     "mpdf/mpdf":"*",
     "zxbodya/yii2-tinymce": "*@dev",
     "zxbodya/yii2-elfinder": "*@dev"
